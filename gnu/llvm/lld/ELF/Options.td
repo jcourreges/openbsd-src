@@ -524,6 +524,7 @@ def: Separate<["--", "-"], "library">, Alias<library>;
 def: Joined<["--", "-"], "library=">, Alias<library>;
 def: Separate<["--", "-"], "library-path">, Alias<library_path>;
 def: Joined<["--", "-"], "library-path=">, Alias<library_path>;
+def: F<"nopie">, Alias<no_pie>, HelpText<"Alias for --no-pie">;
 def: Flag<["-"], "n">, Alias<nmagic>, HelpText<"Alias for --nmagic">;
 def: Flag<["-"], "N">, Alias<omagic>, HelpText<"Alias for --omagic">;
 def: Joined<["--"], "output=">, Alias<o>, HelpText<"Alias for -o">;
