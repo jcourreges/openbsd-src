@@ -3,6 +3,8 @@
 PROG=	clang-tblgen
 NOMAN=
 
+CPPFLAGS+=	${CLANG_INCLUDES}
+
 .include <bsd.own.mk>
 SRCS=	ASTTableGen.cpp \
 	ClangASTNodesEmitter.cpp \
@@ -22,9 +24,11 @@ SRCS=	ASTTableGen.cpp \
 	MveEmitter.cpp \
 	NeonEmitter.cpp \
 	RISCVVEmitter.cpp \
+	RISCVVIntrinsicUtils.cpp \
 	SveEmitter.cpp \
 	TableGen.cpp
 
+.PATH:	${.CURDIR}/../../../llvm/clang/lib/Support
 .PATH:	${.CURDIR}/../../../llvm/clang/utils/TableGen
 
 LLVM_LIBDEPS=	LLVMTableGen LLVMSupport

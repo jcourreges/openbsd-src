@@ -7,6 +7,11 @@ NOPROFILE=
 CPPFLAGS+=	-I${LLVM_SRCS}/include/llvm/ADT     \
 	-I${LLVM_SRCS}/include/llvm/Support
 
+CPPFLAGS+=	-DBLAKE3_NO_AVX512 \
+		-DBLAKE3_NO_AVX2 \
+		-DBLAKE3_NO_SSE41 \
+		-DBLAKE3_NO_SSE2
+
 .include <bsd.own.mk>
 
 SRCS=	AArch64TargetParser.cpp \
@@ -20,6 +25,7 @@ SRCS=	AArch64TargetParser.cpp \
 	ARMBuildAttrs.cpp \
 	ARMAttributeParser.cpp \
 	ARMWinEH.cpp \
+	AddressRanges.cpp \
 	Allocator.cpp \
 	BinaryStreamError.cpp \
 	BinaryStreamReader.cpp \
@@ -29,6 +35,7 @@ SRCS=	AArch64TargetParser.cpp \
 	BranchProbability.cpp \
 	BuryPointer.cpp \
 	CachePruning.cpp \
+	Caching.cpp \
 	circular_raw_ostream.cpp \
 	Chrono.cpp \
 	COM.cpp \
@@ -39,10 +46,14 @@ SRCS=	AArch64TargetParser.cpp \
 	ConvertUTF.cpp \
 	ConvertUTFWrapper.cpp \
 	CrashRecoveryContext.cpp \
+	CSKYAttributes.cpp \
+	CSKYAttributeParser.cpp \
+	CSKYTargetParser.cpp \
 	DataExtractor.cpp \
 	Debug.cpp \
 	DebugCounter.cpp \
 	DeltaAlgorithm.cpp \
+	DivisionByConstantInfo.cpp \
 	DAGDeltaAlgorithm.cpp \
 	DJB.cpp \
 	ELFAttributeParser.cpp \
@@ -77,6 +88,8 @@ SRCS=	AArch64TargetParser.cpp \
 	MemoryBuffer.cpp \
 	MemoryBufferRef.cpp \
 	MD5.cpp \
+	MSP430Attributes.cpp \
+	MSP430AttributeParser.cpp \
 	NativeFormatting.cpp \
 	OptimizedStructLayout.cpp \
 	Optional.cpp \
@@ -87,9 +100,11 @@ SRCS=	AArch64TargetParser.cpp \
 	Regex.cpp \
 	RISCVAttributes.cpp \
 	RISCVAttributeParser.cpp \
+	RISCVISAInfo.cpp \
 	ScaledNumber.cpp \
 	ScopedPrinter.cpp \
 	SHA1.cpp \
+	SHA256.cpp \
 	Signposts.cpp \
 	SmallPtrSet.cpp \
 	SmallVector.cpp \
@@ -115,6 +130,8 @@ SRCS=	AArch64TargetParser.cpp \
 	TypeSize.cpp \
 	Unicode.cpp \
 	UnicodeCaseFold.cpp \
+	UnicodeNameToCodepoint.cpp \
+	UnicodeNameToCodepointGenerated.cpp \
 	VersionTuple.cpp \
 	VirtualFileSystem.cpp \
 	WithColor.cpp \
@@ -140,11 +157,13 @@ SRCS=	AArch64TargetParser.cpp \
 	Program.cpp \
 	RWMutex.cpp \
 	Signals.cpp \
-	TargetRegistry.cpp \
 	ThreadLocal.cpp \
 	Threading.cpp \
 	Valgrind.cpp \
-	Watchdog.cpp
+	Watchdog.cpp \
+	blake3.c \
+	blake3_dispatch.c \
+	blake3_portable.c
 
 SupportError.cpp:
 	ln -s ${LLVM_SRCS}/lib/Support/Error.cpp $@
@@ -153,6 +172,7 @@ SupportLowLevelType.cpp:
 	ln -s ${LLVM_SRCS}/lib/Support/LowLevelType.cpp $@
 
 .PATH:	${.CURDIR}/../../../llvm/llvm/lib/Support
+.PATH:	${.CURDIR}/../../../llvm/llvm/lib/Support/BLAKE3
 
 install:
 	@# Nothing here so far ...

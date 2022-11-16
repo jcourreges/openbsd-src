@@ -9,7 +9,6 @@ SRCS=	AsmMatcherEmitter.cpp \
 	AsmWriterInst.cpp \
 	Attributes.cpp \
 	CallingConvEmitter.cpp \
-	CodeBeadsGen.cpp \
 	CodeEmitterGen.cpp \
 	CodeGenDAGPatterns.cpp \
 	CodeGenHwModes.cpp \
@@ -18,6 +17,7 @@ SRCS=	AsmMatcherEmitter.cpp \
 	CodeGenRegisters.cpp \
 	CodeGenSchedule.cpp \
 	CodeGenTarget.cpp \
+	CompressInstEmitter.cpp \
 	DAGISelEmitter.cpp \
 	DAGISelMatcherEmitter.cpp \
 	DAGISelMatcherGen.cpp \
@@ -25,11 +25,12 @@ SRCS=	AsmMatcherEmitter.cpp \
 	DAGISelMatcher.cpp \
 	DFAEmitter.cpp \
 	DFAPacketizerEmitter.cpp \
+	DXILEmitter.cpp \
+	DecoderEmitter.cpp \
 	DirectiveEmitter.cpp \
 	DisassemblerEmitter.cpp \
 	ExegesisEmitter.cpp \
 	FastISelEmitter.cpp \
-	FixedLenDecoderEmitter.cpp \
 	GICombinerEmitter.cpp \
 	GlobalISelEmitter.cpp \
 	InfoByHwMode.cpp \
@@ -41,7 +42,6 @@ SRCS=	AsmMatcherEmitter.cpp \
 	OptRSTEmitter.cpp \
 	PredicateExpander.cpp \
 	PseudoLoweringEmitter.cpp \
-	RISCVCompressInstEmitter.cpp \
 	RegisterBankEmitter.cpp \
 	RegisterInfoEmitter.cpp \
 	SDNodeProperties.cpp \
@@ -50,9 +50,11 @@ SRCS=	AsmMatcherEmitter.cpp \
 	SubtargetFeatureInfo.cpp \
 	TableGen.cpp \
 	Types.cpp \
+	VarLenCodeEmitterGen.cpp \
 	X86DisassemblerTables.cpp \
 	X86EVEX2VEXTablesEmitter.cpp \
 	X86FoldTablesEmitter.cpp \
+	X86MnemonicTables.cpp \
 	X86ModRMFilters.cpp \
 	X86RecognizableInstr.cpp \
 	WebAssemblyDisassemblerEmitter.cpp \

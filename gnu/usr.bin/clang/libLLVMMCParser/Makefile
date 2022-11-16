@@ -11,6 +11,7 @@ SRCS+=	AsmLexer.cpp \
 	COFFMasmParser.cpp \
 	DarwinAsmParser.cpp \
 	ELFAsmParser.cpp \
+	GOFFAsmParser.cpp \
 	MCAsmLexer.cpp \
 	MCAsmParser.cpp \
 	MCAsmParserExtension.cpp \

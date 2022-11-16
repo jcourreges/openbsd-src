@@ -2,7 +2,7 @@
 
 .include <bsd.own.mk>
 
-LLVM_V=			13.0.0
+LLVM_V=			15.0.6
 CLANG_INTR_INCDIR=	/usr/lib/clang/${LLVM_V}/include
 
 TBLGEN= ${.OBJDIR}/../../../clang-tblgen/clang-tblgen

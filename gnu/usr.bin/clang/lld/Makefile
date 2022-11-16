@@ -22,7 +22,6 @@ CPPFLAGS+=	-I${.CURDIR}/../../../llvm/lld/include
 
 LLVM_LIBDEPS=	LLVM \
 		lldELF \
-		lldCommon \
-		lldCore
+		lldCommon
 
 .include <bsd.prog.mk>

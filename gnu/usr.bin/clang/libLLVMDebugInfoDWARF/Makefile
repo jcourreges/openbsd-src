@@ -30,6 +30,7 @@ SRCS+=	DWARFAbbreviationDeclaration.cpp \
 	DWARFGdbIndex.cpp \
 	DWARFListTable.cpp \
 	DWARFLocationExpression.cpp \
+	DWARFTypePrinter.cpp \
 	DWARFTypeUnit.cpp \
 	DWARFUnitIndex.cpp \
 	DWARFUnit.cpp \
