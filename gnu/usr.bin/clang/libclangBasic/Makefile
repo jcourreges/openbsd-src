@@ -11,6 +11,7 @@ CPPFLAGS+=	-I${CLANG_SRCS}/lib/Basic/Targets
 .include <bsd.own.mk>
 SRCS=	Attributes.cpp \
 	Builtins.cpp \
+	CLWarnings.cpp \
 	CharInfo.cpp \
 	CodeGenOptions.cpp \
 	Cuda.cpp \
@@ -25,6 +26,7 @@ SRCS=	Attributes.cpp \
 	IdentifierTable.cpp \
 	LangOptions.cpp \
 	LangStandards.cpp \
+	MakeSupport.cpp \
 	Module.cpp \
 	ObjCRuntime.cpp \
 	OpenCLOptions.cpp \
@@ -34,6 +36,7 @@ SRCS=	Attributes.cpp \
 	NoSanitizeList.cpp \
 	SanitizerSpecialCaseList.cpp \
 	Sanitizers.cpp \
+	Sarif.cpp \
 	SourceLocation.cpp \
 	SourceManager.cpp \
 	Stack.cpp \
@@ -54,6 +57,8 @@ SRCS+=	AArch64.cpp \
 	ARM.cpp \
 	AVR.cpp \
 	BPF.cpp \
+	CSKY.cpp \
+	DirectX.cpp \
 	Hexagon.cpp \
 	Lanai.cpp \
 	Le64.cpp \
