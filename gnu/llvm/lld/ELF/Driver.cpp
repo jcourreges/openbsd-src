@@ -355,8 +355,14 @@ static void checkOptions() {
   }
 
   if (config->executeOnly) {
-    if (config->emachine != EM_AARCH64)
-      error("--execute-only is only supported on AArch64 targets");
+    switch (config->emachine) {
+    case EM_AARCH64:
+    case EM_RISCV:
+    case EM_MIPS:
+      break;
+    default:
+      error("-execute-only is not supported on this target");
+    }
 
     if (config->singleRoRx && !script->hasSectionsCommand)
       error("--execute-only and --no-rosegment cannot be used together");
@@ -472,6 +478,7 @@ constexpr const char *knownZFlags[] = {
     "nokeep-text-section-prefix",
     "nopack-relative-relocs",
     "norelro",
+    "noretpolineplt",
     "noseparate-code",
     "nostart-stop-gc",
     "notext",
@@ -1144,7 +1151,12 @@ static void readConfigs(opt::InputArgList &args) {
   config->orphanHandling = getOrphanHandling(args);
   config->outputFile = args.getLastArgValue(OPT_o);
   config->packageMetadata = args.getLastArgValue(OPT_package_metadata);
+#ifdef __OpenBSD__
+  config->pie = args.hasFlag(OPT_pie, OPT_no_pie,
+      !args.hasArg(OPT_shared) && !args.hasArg(OPT_relocatable));
+#else
   config->pie = args.hasFlag(OPT_pie, OPT_no_pie, false);
+#endif
   config->printIcfSections =
       args.hasFlag(OPT_print_icf_sections, OPT_no_print_icf_sections, false);
   config->printGcSections =
@@ -1241,7 +1253,11 @@ static void readConfigs(opt::InputArgList &args) {
   config->zOrigin = hasZOption(args, "origin");
   config->zPacPlt = hasZOption(args, "pac-plt");
   config->zRelro = getZFlag(args, "relro", "norelro", true);
-  config->zRetpolineplt = hasZOption(args, "retpolineplt");
+#ifndef __OpenBSD__
+  config->zRetpolineplt = getZFlag(args, "retpolineplt", "noretpolineplt", false);
+#else
+  config->zRetpolineplt = getZFlag(args, "retpolineplt", "noretpolineplt", true);
+#endif
   config->zRodynamic = hasZOption(args, "rodynamic");
   config->zSeparate = getZSeparate(args);
   config->zShstk = hasZOption(args, "shstk");
@@ -1693,7 +1709,7 @@ void LinkerDriver::inferMachineType() {
 }
 
 // Parse -z max-page-size=<value>. The default value is defined by
-// each target.
+// each target. Is set to 1 if given nmagic or omagic.
 static uint64_t getMaxPageSize(opt::InputArgList &args) {
   uint64_t val = args::getZOptionValue(args, OPT_z, "max-page-size",
                                        target->defaultMaxPageSize);
@@ -1710,7 +1726,7 @@ static uint64_t getMaxPageSize(opt::InputArgList &args) {
 }
 
 // Parse -z common-page-size=<value>. The default value is defined by
-// each target.
+// each target. Is set to 1 if given nmagic or omagic.
 static uint64_t getCommonPageSize(opt::InputArgList &args) {
   uint64_t val = args::getZOptionValue(args, OPT_z, "common-page-size",
                                        target->defaultCommonPageSize);
@@ -1726,6 +1742,16 @@ static uint64_t getCommonPageSize(opt::InputArgList &args) {
   // commonPageSize can't be larger than maxPageSize.
   if (val > config->maxPageSize)
     val = config->maxPageSize;
+  return val;
+}
+
+// Parse -z max-page-size=<value>. The default value is defined by
+// each target.
+static uint64_t getRealMaxPageSize(opt::InputArgList &args) {
+  uint64_t val = args::getZOptionValue(args, OPT_z, "max-page-size",
+                                       target->defaultMaxPageSize);
+  if (!isPowerOf2_64(val))
+    error("max-page-size: value isn't a power of 2");
   return val;
 }
 
@@ -2728,6 +2754,11 @@ void LinkerDriver::link(opt::InputArgList &args) {
   // optimizations such as DATA_SEGMENT_ALIGN in linker scripts. LLD's use of it
   // is limited to writing trap instructions on the last executable segment.
   config->commonPageSize = getCommonPageSize(args);
+  // textAlignPageSize is the alignment page size to use when aligning PT_LOAD
+  // sections. This is the same as maxPageSize except under -omagic, where data
+  // sections are non-aligned (maxPageSize set to 1) but text sections are aligned
+  // to the target page size.
+  config->textAlignPageSize = config->omagic ? getRealMaxPageSize(args) : config->maxPageSize;
 
   config->imageBase = getImageBase(args);
 
