@@ -244,8 +244,9 @@ def icf_safe: F<"icf=safe">, HelpText<"Enable safe identical code folding">;
 
 def icf_none: F<"icf=none">, HelpText<"Disable identical code folding (default)">;
 
-def ignore_function_address_equality: FF<"ignore-function-address-equality">,
-  HelpText<"lld can break the address equality of functions">;
+defm ignore_function_address_equality: B<"ignore-function-address-equality",
+  "lld can break the address equality of functions",
+  "lld cannot break the address equality of functions (default)">;
 
 def ignore_data_address_equality: FF<"ignore-data-address-equality">,
   HelpText<"lld can break the address equality of data">;
@@ -524,6 +525,7 @@ def: Separate<["--", "-"], "library">, Alias<library>;
 def: Joined<["--", "-"], "library=">, Alias<library>;
 def: Separate<["--", "-"], "library-path">, Alias<library_path>;
 def: Joined<["--", "-"], "library-path=">, Alias<library_path>;
+def: F<"nopie">, Alias<no_pie>, HelpText<"Alias for --no-pie">;
 def: Flag<["-"], "n">, Alias<nmagic>, HelpText<"Alias for --nmagic">;
 def: Flag<["-"], "N">, Alias<omagic>, HelpText<"Alias for --omagic">;
 def: Joined<["--"], "output=">, Alias<o>, HelpText<"Alias for -o">;
