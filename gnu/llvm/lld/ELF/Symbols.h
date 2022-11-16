@@ -144,6 +144,9 @@ public:
   // True if the name contains '@'.
   uint8_t hasVersionSuffix : 1;
 
+  // True if the .gnu.warning.SYMBOL is set for the symbol
+  uint8_t gwarn : 1;
+
   inline void replace(const Symbol &other);
 
   bool includeInDynsym() const;
@@ -243,6 +246,7 @@ private:
 protected:
   Symbol(Kind k, InputFile *file, StringRef name, uint8_t binding,
          uint8_t stOther, uint8_t type)
+<<<<<<< HEAD
       : file(file), nameData(name.data()), nameSize(name.size()), type(type),
         binding(binding), stOther(stOther), symbolKind(k),
         visibility(stOther & 3), isPreemptible(false),
@@ -254,6 +258,16 @@ protected:
         needsPlt(false), needsTlsDesc(false), needsTlsGd(false),
         needsTlsGdToIe(false), needsGotDtprel(false), needsTlsIe(false),
         hasDirectReloc(false) {}
+=======
+      : file(file), nameData(name.data), nameSize(name.size), binding(binding),
+        type(type), stOther(stOther), symbolKind(k), visibility(stOther & 3),
+        isUsedInRegularObj(!file || file->kind() == InputFile::ObjKind),
+        exportDynamic(isExportDynamic(k, visibility)), inDynamicList(false),
+        canInline(false), referenced(false), traced(false), gwarn(false), needsPltAddr(false),
+        isInIplt(false), gotInIgot(false), isPreemptible(false),
+        used(!config->gcSections), needsTocRestore(false),
+        scriptDefined(false) {}
+>>>>>>> parent of bf47a89e89c (Revert "add .gnu.warning.SYMBOL support to ld.lld(1) to display the warnings in")
 
 public:
   // True if this symbol is in the Iplt sub-section of the Plt and the Igot
@@ -447,6 +461,9 @@ struct ElfSym {
   // __bss_start
   static Defined *bss;
 
+  // __data_start
+  static Defined *data;
+
   // etext and _etext
   static Defined *etext1;
   static Defined *etext2;
@@ -534,7 +551,12 @@ void Symbol::replace(const Symbol &other) {
   inDynamicList = old.inDynamicList;
   referenced = old.referenced;
   traced = old.traced;
+<<<<<<< HEAD
   hasVersionSuffix = old.hasVersionSuffix;
+=======
+  gwarn = old.gwarn;
+  isPreemptible = old.isPreemptible;
+>>>>>>> parent of bf47a89e89c (Revert "add .gnu.warning.SYMBOL support to ld.lld(1) to display the warnings in")
   scriptDefined = old.scriptDefined;
   versionId = old.versionId;
 
@@ -554,6 +576,18 @@ void reportDuplicate(const Symbol &sym, const InputFile *newFile,
                      InputSectionBase *errSec, uint64_t errOffset);
 void maybeWarnUnorderableSymbol(const Symbol *sym);
 bool computeIsPreemptible(const Symbol &sym);
+<<<<<<< HEAD
+=======
+void reportBackrefs();
+
+extern llvm::DenseMap<StringRef, StringRef> gnuWarnings;
+
+// A mapping from a symbol to an InputFile referencing it backward. Used by
+// --warn-backrefs.
+extern llvm::DenseMap<const Symbol *,
+                      std::pair<const InputFile *, const InputFile *>>
+    backwardReferences;
+>>>>>>> parent of bf47a89e89c (Revert "add .gnu.warning.SYMBOL support to ld.lld(1) to display the warnings in")
 
 } // namespace elf
 } // namespace lld
