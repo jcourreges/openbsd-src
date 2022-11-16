@@ -23,6 +23,8 @@
 #define LLVM_CXXFLAGS "-std=c++14   -fno-exceptions -fno-rtti -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS"
 #define LLVM_BUILDMODE "Release"
 #define LLVM_LIBDIR_SUFFIX ""
+#define LLVM_INSTALL_INCLUDEDIR "/include"
+#define LLVM_INSTALL_PACKAGE_DIR "/cmake/llvm"
 #define LLVM_SYSTEM_LIBS "-lz -lpthread -lm"
 #define LLVM_BUILD_SYSTEM "cmake"
 #define LLVM_HAS_RTTI 0

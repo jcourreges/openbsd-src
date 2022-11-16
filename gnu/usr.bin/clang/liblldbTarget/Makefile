@@ -7,6 +7,7 @@ NOPROFILE=
 .include <bsd.own.mk>
 SRCS=	ABI.cpp \
 	AssertFrameRecognizer.cpp \
+	DynamicRegisterInfo.cpp \
 	ExecutionContext.cpp \
 	InstrumentationRuntime.cpp \
 	InstrumentationRuntimeStopInfo.cpp \
@@ -17,6 +18,7 @@ SRCS=	ABI.cpp \
 	Memory.cpp \
 	MemoryHistory.cpp \
 	MemoryRegionInfo.cpp \
+	MemoryTagMap.cpp \
 	ModuleCache.cpp \
 	OperatingSystem.cpp \
 	PathMappingList.cpp \
@@ -36,6 +38,7 @@ SRCS=	ABI.cpp \
 	StackFrameList.cpp \
 	StackFrameRecognizer.cpp \
 	StackID.cpp \
+	Statistics.cpp \
 	StopInfo.cpp \
 	StructuredDataPlugin.cpp \
 	SystemRuntime.cpp \
@@ -67,7 +70,7 @@ SRCS=	ABI.cpp \
 	Trace.cpp \
 	TraceCursor.cpp \
 	TraceExporter.cpp \
-	TraceInstructionDumper.cpp \
+	TraceDumper.cpp \
 	UnixSignals.cpp \
 	UnwindAssembly.cpp \
 	UnwindLLDB.cpp
