@@ -12,10 +12,12 @@ SRCS=	AnalysisBasedWarnings.cpp \
 	CodeCompleteConsumer.cpp \
 	DeclSpec.cpp \
 	DelayedDiagnostic.cpp \
+	HLSLExternalSemaSource.cpp \
 	IdentifierResolver.cpp \
 	JumpDiagnostics.cpp \
 	MultiplexExternalSemaSource.cpp \
 	ParsedAttr.cpp \
+	RISCVVIntrinsicUtils.cpp \
 	Scope.cpp \
 	ScopeInfo.cpp \
 	Sema.cpp \
@@ -48,6 +50,7 @@ SRCS=	AnalysisBasedWarnings.cpp \
 	SemaOpenMP.cpp \
 	SemaOverload.cpp \
 	SemaPseudoObject.cpp \
+	SemaRISCVVectorLookup.cpp \
 	SemaStmt.cpp \
 	SemaStmtAsm.cpp \
 	SemaStmtAttr.cpp \
@@ -61,6 +64,7 @@ SRCS=	AnalysisBasedWarnings.cpp \
 	TypeLocBuilder.cpp
 
 .PATH:	${.CURDIR}/../../../llvm/clang/lib/Sema
+.PATH:	${.CURDIR}/../../../llvm/clang/lib/Support
 
 install:
 	@# Nothing here so far ...

@@ -8,7 +8,7 @@ LIBEXECDIR=/usr/libexec
 
 SRCS=	Driver.cpp \
 	Platform.cpp \
-	lldb.cpp
+	Version.cpp
 
 LDADD+=		-lcurses -ledit -lpanel
 
@@ -16,6 +16,7 @@ CPPFLAGS+=	${LLDB_INCLUDES}
 CPPFLAGS+=	${CLANG_INCLUDES}
 
 .PATH:	${.CURDIR}/../../../llvm/lldb/source
+.PATH:	${.CURDIR}/../../../llvm/lldb/source/Version
 .PATH:	${.CURDIR}/../../../llvm/lldb/tools/driver
 .PATH:	${.CURDIR}/../../../llvm/lldb/docs
 
@@ -70,7 +71,6 @@ LLVM_LIBDEPS=	clangAST \
 		lldbUtility
 
 Driver.o: Options.inc
-
 Options.inc: Options.td
 	${.OBJDIR}/../llvm-tblgen/llvm-tblgen -gen-opt-parser-defs \
 		-I ${LLVM_SRCS}/include \

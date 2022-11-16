@@ -11,6 +11,7 @@ HDRS=	MipsGenAsmMatcher.inc \
 	MipsGenDisassemblerTables.inc \
 	MipsGenFastISel.inc \
 	MipsGenGlobalISel.inc \
+	MipsGenPostLegalizeGICombiner.inc \
 	MipsGenInstrInfo.inc \
 	MipsGenMCCodeEmitter.inc \
 	MipsGenMCPseudoLowering.inc \
@@ -59,6 +60,12 @@ MipsGenFastISel.inc: ${LLVM_SRCS}/lib/Target/Mips/Mips.td
 
 MipsGenGlobalISel.inc: ${LLVM_SRCS}/lib/Target/Mips/Mips.td
 	${.OBJDIR}/../../../llvm-tblgen/llvm-tblgen -gen-global-isel \
+		-I${LLVM_SRCS}/include -I${LLVM_SRCS}/lib/Target/Mips \
+		-o ${.TARGET} ${.ALLSRC}
+
+MipsGenPostLegalizeGICombiner.inc: ${LLVM_SRCS}/lib/Target/Mips/Mips.td
+	${.OBJDIR}/../../../llvm-tblgen/llvm-tblgen -gen-global-isel-combiner \
+		-combiners="MipsPostLegalizerCombinerHelper" \
 		-I${LLVM_SRCS}/include -I${LLVM_SRCS}/lib/Target/Mips \
 		-o ${.TARGET} ${.ALLSRC}
 

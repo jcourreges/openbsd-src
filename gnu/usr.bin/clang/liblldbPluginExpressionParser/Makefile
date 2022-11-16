@@ -15,6 +15,7 @@ SRCS=	ASTResultSynthesizer.cpp \
 	ClangExpressionDeclMap.cpp \
 	ClangExpressionParser.cpp \
 	ClangExpressionSourceCode.cpp \
+	ClangExpressionUtil.cpp \
 	ClangExpressionVariable.cpp \
 	ClangExternalASTSourceCallbacks.cpp \
 	ClangFunctionCaller.cpp \

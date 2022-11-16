@@ -18,6 +18,10 @@
 /* Define to 1 to enable crash memory dumps, and to 0 otherwise. */
 #define LLVM_ENABLE_CRASH_DUMPS 0
 
+/* Define to 1 to prefer forward slashes on Windows, and to 0 prefer
+   backslashes. */
+#define LLVM_WINDOWS_PREFER_FORWARD_SLASH 0
+
 /* Define to 1 if you have the `backtrace' function. */
 /* #undef HAVE_BACKTRACE */
 
@@ -45,9 +49,6 @@
    don't. */
 #define HAVE_DECL_STRERROR_S 0
 
-/* Define to 1 if you have the DIA SDK installed, and to 0 if you don't. */
-#define LLVM_ENABLE_DIA_SDK 0
-
 /* Define to 1 if you have the <dlfcn.h> header file. */
 #define HAVE_DLFCN_H 1
 
@@ -72,6 +73,9 @@
 /* Define to 1 if we can deregister EH frames on this platform. */
 #define HAVE_DEREGISTER_FRAME 1
 #endif
+
+/* Define if __unw_add_dynamic_fde() is available on this platform. */
+#define HAVE_UNW_ADD_DYNAMIC_FDE 0
 
 /* Define to 1 if you have the <errno.h> header file. */
 #define HAVE_ERRNO_H 1
@@ -154,17 +158,11 @@
 /* Define to 1 if you have the `malloc_zone_statistics' function. */
 /* #undef HAVE_MALLOC_ZONE_STATISTICS */
 
-/* Define to 1 if you have the `posix_fallocate' function. */
-/* #undef HAVE_POSIX_FALLOCATE */
-
 /* Define to 1 if you have the `posix_spawn' function. */
 #define HAVE_POSIX_SPAWN 1
 
 /* Define to 1 if you have the `pread' function. */
 #define HAVE_PREAD 1
-
-/* Have pthread_getspecific */
-#define HAVE_PTHREAD_GETSPECIFIC 1
 
 /* Define to 1 if you have the <pthread.h> header file. */
 #define HAVE_PTHREAD_H 1
@@ -301,18 +299,8 @@
 /* Linker version detected at compile time. */
 /* #undef HOST_LINK_VERSION */
 
-/* Target triple LLVM will generate code for by default */
-/* Doesn't use `cmakedefine` because it is allowed to be empty. */
-/* #define LLVM_DEFAULT_TARGET_TRIPLE "amd64-unknown-openbsd7.0" */
-
-/* Define if zlib compression is available */
-/* #define LLVM_ENABLE_ZLIB 1 */
-
 /* Define if overriding target triple is enabled */
 /* #undef LLVM_TARGET_TRIPLE_ENV */
-
-/* LLVM version information */
-/* #undef LLVM_VERSION_INFO */
 
 /* Whether tools show host and target info when invoked with --version */
 #define LLVM_VERSION_PRINTER_SHOW_HOST_TARGET_INFO 1
@@ -333,16 +321,13 @@
 #define PACKAGE_NAME "LLVM"
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "LLVM 13.0.0"
+#define PACKAGE_STRING "LLVM 15.0.6"
 
 /* Define to the version of this package. */
-#define PACKAGE_VERSION "13.0.0"
+#define PACKAGE_VERSION "15.0.6"
 
 /* Define to the vendor of this package. */
 /* #undef PACKAGE_VENDOR */
-
-/* Define as the return type of signal handlers (`int' or `void'). */
-#define RETSIGTYPE void
 
 /* Define if std::is_trivially_copyable is supported */
 #define HAVE_STD_IS_TRIVIALLY_COPYABLE 1
@@ -358,6 +343,9 @@
 
 /* Define to the default GlobalISel coverage file prefix */
 /* #undef LLVM_GISEL_COV_PREFIX */
+
+/* Whether Timers signpost passes in Xcode Instruments */
+#define LLVM_SUPPORT_XCODE_SIGNPOSTS 0
 
 /* #undef HAVE_PROC_PID_RUSAGE */
 
