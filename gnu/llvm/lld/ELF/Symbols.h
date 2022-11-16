@@ -144,6 +144,9 @@ public:
   // True if the name contains '@'.
   uint8_t hasVersionSuffix : 1;
 
+  // True if the .gnu.warning.SYMBOL is set for the symbol
+  uint8_t gwarn : 1;
+
   inline void replace(const Symbol &other);
 
   bool includeInDynsym() const;
@@ -248,7 +251,7 @@ protected:
         visibility(stOther & 3), isPreemptible(false),
         isUsedInRegularObj(false), used(false), exportDynamic(false),
         inDynamicList(false), referenced(false), referencedAfterWrap(false),
-        traced(false), hasVersionSuffix(false), isInIplt(false),
+        traced(false), hasVersionSuffix(false), gwarn(false), isInIplt(false),
         gotInIgot(false), folded(false), needsTocRestore(false),
         scriptDefined(false), needsCopy(false), needsGot(false),
         needsPlt(false), needsTlsDesc(false), needsTlsGd(false),
@@ -447,6 +450,9 @@ struct ElfSym {
   // __bss_start
   static Defined *bss;
 
+  // __data_start
+  static Defined *data;
+
   // etext and _etext
   static Defined *etext1;
   static Defined *etext2;
@@ -535,6 +541,7 @@ void Symbol::replace(const Symbol &other) {
   referenced = old.referenced;
   traced = old.traced;
   hasVersionSuffix = old.hasVersionSuffix;
+  gwarn = old.gwarn;
   scriptDefined = old.scriptDefined;
   versionId = old.versionId;
 
@@ -554,6 +561,8 @@ void reportDuplicate(const Symbol &sym, const InputFile *newFile,
                      InputSectionBase *errSec, uint64_t errOffset);
 void maybeWarnUnorderableSymbol(const Symbol *sym);
 bool computeIsPreemptible(const Symbol &sym);
+
+extern llvm::DenseMap<StringRef, StringRef> gnuWarnings;
 
 } // namespace elf
 } // namespace lld
