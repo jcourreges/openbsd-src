@@ -7,9 +7,12 @@ CPPFLAGS+=	-I${LLVM_SRCS}/include/llvm/ProfileData
 
 SRCS+=	GCOV.cpp \
 	InstrProf.cpp \
+	InstrProfCorrelator.cpp \
 	InstrProfReader.cpp \
 	InstrProfWriter.cpp \
+	MemProf.cpp \
 	ProfileSummaryBuilder.cpp \
+	RawMemProfReader.cpp \
 	SampleProf.cpp \
 	SampleProfReader.cpp \
 	SampleProfWriter.cpp

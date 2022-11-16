@@ -14,6 +14,7 @@ SRCS+=	RISCVAsmBackend.cpp \
 	RISCVMCAsmInfo.cpp \
 	RISCVMCCodeEmitter.cpp \
 	RISCVMCExpr.cpp \
+	RISCVMCObjectFileInfo.cpp \
 	RISCVMCTargetDesc.cpp \
 	RISCVMatInt.cpp \
 	RISCVTargetStreamer.cpp

@@ -33,9 +33,17 @@ SRCS=	AnalysisDeclContext.cpp \
 	ThreadSafetyCommon.cpp \
 	ThreadSafetyLogical.cpp \
 	ThreadSafetyTIL.cpp \
-	UninitializedValues.cpp
+	UninitializedValues.cpp \
+	ControlFlowContext.cpp \
+	DataflowAnalysisContext.cpp \
+	DataflowEnvironment.cpp \
+	Transfer.cpp \
+	TypeErasedDataflowAnalysis.cpp \
+	WatchedLiteralsSolver.cpp \
+	DebugSupport.cpp
 
 .PATH:	${.CURDIR}/../../../llvm/clang/lib/Analysis
+.PATH:	${.CURDIR}/../../../llvm/clang/lib/Analysis/FlowSensitive
 
 install:
 	@# Nothing here so far ...

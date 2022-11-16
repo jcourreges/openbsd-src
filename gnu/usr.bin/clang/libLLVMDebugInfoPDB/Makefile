@@ -11,12 +11,17 @@ SRCS+=	DbiModuleDescriptor.cpp \
 	DbiStream.cpp \
 	DbiStreamBuilder.cpp \
 	DebugInfoPDBEnumTables.cpp \
+	FormatUtil.cpp \
+	GenericError.cpp \
 	GlobalsStream.cpp \
 	Hash.cpp \
 	HashTable.cpp \
+	IPDBSourceFile.cpp \
+	InputFile.cpp \
 	InfoStream.cpp \
 	InfoStreamBuilder.cpp \
 	InjectedSourceStream.cpp \
+	LinePrinter.cpp \
 	ModuleDebugStream.cpp \
 	NativeCompilandSymbol.cpp \
 	NativeEnumGlobals.cpp \
@@ -55,8 +60,6 @@ SRCS+=	DbiModuleDescriptor.cpp \
 	TpiHashing.cpp \
 	TpiStream.cpp \
 	TpiStreamBuilder.cpp \
-	GenericError.cpp \
-	IPDBSourceFile.cpp \
 	PDB.cpp \
 	PDBContext.cpp \
 	PDBExtras.cpp \

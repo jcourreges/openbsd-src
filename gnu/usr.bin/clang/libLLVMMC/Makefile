@@ -12,6 +12,7 @@ SRCS+=	ConstantPools.cpp \
 	MCAsmInfoCOFF.cpp \
 	MCAsmInfoDarwin.cpp \
 	MCAsmInfoELF.cpp \
+	MCAsmInfoGOFF.cpp \
 	MCAsmInfoWasm.cpp \
 	MCAsmInfoXCOFF.cpp \
 	MCAsmMacro.cpp \
@@ -21,6 +22,8 @@ SRCS+=	ConstantPools.cpp \
 	MCCodeView.cpp \
 	MCContext.cpp \
 	MCDwarf.cpp \
+	MCDXContainerStreamer.cpp \
+	MCDXContainerWriter.cpp \
 	MCELFObjectTargetWriter.cpp \
 	MCELFStreamer.cpp \
 	MCExpr.cpp \
@@ -43,11 +46,13 @@ SRCS+=	ConstantPools.cpp \
 	MCSchedule.cpp \
 	MCSection.cpp \
 	MCSectionCOFF.cpp \
+	MCSectionDXContainer.cpp \
 	MCSectionELF.cpp \
 	MCSectionMachO.cpp \
 	MCSectionWasm.cpp \
 	MCSectionXCOFF.cpp \
 	MCStreamer.cpp \
+	MCSPIRVStreamer.cpp \
 	MCSubtargetInfo.cpp \
 	MCSymbol.cpp \
 	MCSymbolELF.cpp \
@@ -63,8 +68,10 @@ SRCS+=	ConstantPools.cpp \
 	MCXCOFFObjectTargetWriter.cpp \
 	MCXCOFFStreamer.cpp \
 	MachObjectWriter.cpp \
+	SPIRVObjectWriter.cpp \
 	StringTableBuilder.cpp \
 	SubtargetFeature.cpp \
+	TargetRegistry.cpp \
 	WasmObjectWriter.cpp \
 	WinCOFFObjectWriter.cpp \
 	XCOFFObjectWriter.cpp

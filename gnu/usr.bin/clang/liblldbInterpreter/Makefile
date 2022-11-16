@@ -16,6 +16,7 @@ SRCS=	CommandAlias.cpp \
 	OptionGroupBoolean.cpp \
 	OptionGroupFile.cpp \
 	OptionGroupFormat.cpp \
+	OptionGroupMemoryTag.cpp \
 	OptionGroupPythonClassWithDict.cpp \
 	OptionGroupOutputFile.cpp \
 	OptionGroupPlatform.cpp \

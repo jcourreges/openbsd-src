@@ -5,7 +5,8 @@ NOPROFILE=
 
 CPPFLAGS+=	-I${LLVM_SRCS}/include/llvm/Demangle
 
-SRCS+=	Demangle.cpp \
+SRCS+=	DLangDemangle.cpp \
+	Demangle.cpp \
 	ItaniumDemangle.cpp \
 	MicrosoftDemangle.cpp \
 	MicrosoftDemangleNodes.cpp \

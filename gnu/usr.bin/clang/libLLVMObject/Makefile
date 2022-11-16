@@ -12,6 +12,7 @@ SRCS+=	Archive.cpp \
 	COFFModuleDefinition.cpp \
 	COFFObjectFile.cpp \
 	Decompressor.cpp \
+	DXContainer.cpp \
 	ObjectELF.cpp \
 	ELFObjectFile.cpp \
 	ObjectError.cpp \
@@ -24,6 +25,7 @@ SRCS+=	Archive.cpp \
 	ModuleSymbolTable.cpp \
 	Object.cpp \
 	ObjectFile.cpp \
+	OffloadBinary.cpp \
 	RecordStreamer.cpp \
 	RelocationResolver.cpp \
 	SymbolicFile.cpp \

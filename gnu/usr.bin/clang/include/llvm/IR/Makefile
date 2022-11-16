@@ -11,6 +11,7 @@ DEFS=	Attributes.inc \
 	IntrinsicsAMDGPU.h \
 	IntrinsicsARM.h \
 	IntrinsicsBPF.h \
+	IntrinsicsDirectX.h \
 	IntrinsicsHexagon.h \
 	IntrinsicsMips.h \
 	IntrinsicsNVPTX.h \
@@ -68,6 +69,12 @@ IntrinsicsARM.h: ${LLVM_SRCS}/include/llvm/IR/Intrinsics.td
 
 IntrinsicsBPF.h: ${LLVM_SRCS}/include/llvm/IR/Intrinsics.td
 	${.OBJDIR}/../../../llvm-tblgen/llvm-tblgen -gen-intrinsic-enums -intrinsic-prefix=bpf \
+		-I${LLVM_SRCS}/include/llvm/IR -I${LLVM_SRCS}/lib/Target \
+		-I${LLVM_SRCS}/include \
+		-o ${.TARGET} ${.ALLSRC}
+
+IntrinsicsDirectX.h: ${LLVM_SRCS}/include/llvm/IR/Intrinsics.td
+	${.OBJDIR}/../../../llvm-tblgen/llvm-tblgen -gen-intrinsic-enums -intrinsic-prefix=dx \
 		-I${LLVM_SRCS}/include/llvm/IR -I${LLVM_SRCS}/lib/Target \
 		-I${LLVM_SRCS}/include \
 		-o ${.TARGET} ${.ALLSRC}

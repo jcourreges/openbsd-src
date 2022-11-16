@@ -5,7 +5,10 @@ NOPROFILE=
 
 CPPFLAGS+=	-I${LLVM_SRCS}/include/llvm/DebugInfo/Symbolize
 
-SRCS+=	DIPrinter.cpp \
+SRCS+=	DIFetcher.cpp \
+	DIPrinter.cpp \
+	Markup.cpp \
+	MarkupFilter.cpp \
 	SymbolizableObjectFile.cpp \
 	Symbolize.cpp \
 

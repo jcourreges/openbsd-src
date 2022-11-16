@@ -7,6 +7,7 @@ CPPFLAGS+=	-I${LLD_SRCS}/include
 
 .include <bsd.own.mk>
 SRCS=	Args.cpp \
+	CommonLinkerContext.cpp \
 	DWARF.cpp \
 	ErrorHandler.cpp \
 	Filesystem.cpp \

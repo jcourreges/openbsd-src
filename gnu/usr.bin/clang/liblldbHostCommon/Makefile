@@ -31,7 +31,6 @@ SRCS=	Editline.cpp \
 	PseudoTerminal.cpp \
 	SocketAddress.cpp \
 	Socket.cpp \
-	StringConvert.cpp \
 	TCPSocket.cpp \
 	Terminal.cpp \
 	ThreadLauncher.cpp \

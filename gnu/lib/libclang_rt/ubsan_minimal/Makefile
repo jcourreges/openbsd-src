@@ -2,7 +2,7 @@
 
 .include <bsd.own.mk>
 
-LLVM_V=		13.0.0
+LLVM_V=		15.0.7
 LIBDIR=		/usr/lib/clang/${LLVM_V}/lib
 
 .if ${COMPILER_VERSION:L} != "clang"

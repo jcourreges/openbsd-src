@@ -18,6 +18,7 @@ SRCS=	APValue.cpp \
 	ASTImporterLookupTable.cpp \
 	ASTStructuralEquivalence.cpp \
 	ASTTypeTraits.cpp \
+	AttrDocTable.cpp \
 	AttrImpl.cpp \
 	Comment.cpp \
 	CommentBriefParser.cpp \
@@ -64,6 +65,7 @@ SRCS=	APValue.cpp \
 	ParentMap.cpp \
 	PrintfFormatString.cpp \
 	QualTypeNames.cpp \
+	Randstruct.cpp \
 	RawCommentList.cpp \
 	RecordLayout.cpp \
 	RecordLayoutBuilder.cpp \

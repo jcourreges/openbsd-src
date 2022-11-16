@@ -6,7 +6,10 @@ NOPROFILE=
 CPPFLAGS+=	-I${LLVM_SRCS}/include/llvm/Passes \
 	-I${LLVM_SRCS}/include/llvm/
 
-SRCS+=	PassBuilder.cpp \
+SRCS+=	OptimizationLevel.cpp \
+	PassBuilder.cpp \
+	PassBuilderBindings.cpp \
+	PassBuilderPipelines.cpp \
 	PassPlugin.cpp \
 	StandardInstrumentations.cpp
 

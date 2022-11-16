@@ -7,7 +7,7 @@ BINDIR=	/usr/bin
 NOMAN=
 
 SRCS=	Acceptor.cpp \
-	lldb.cpp \
+	Version.cpp \
 	lldb-gdbserver.cpp \
 	lldb-platform.cpp \
 	lldb-server.cpp \
@@ -18,6 +18,7 @@ LDADD+=	-lcurses -ledit -lpanel
 
 
 .PATH:	${.CURDIR}/../../../llvm/lldb/source
+.PATH:	${.CURDIR}/../../../llvm/lldb/source/Version
 .PATH:	${.CURDIR}/../../../llvm/lldb/tools/lldb-server
 
 LLVM_LIBDEPS=	clangAST \

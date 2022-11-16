@@ -13,6 +13,7 @@ SRCS+=	AppleDWARFIndex.cpp \
 	DebugNamesDWARFIndex.cpp \
 	DIERef.cpp \
 	DWARFAbbreviationDeclaration.cpp \
+	DWARFASTParser.cpp \
 	DWARFASTParserClang.cpp \
 	DWARFAttribute.cpp \
 	DWARFBaseDIE.cpp \

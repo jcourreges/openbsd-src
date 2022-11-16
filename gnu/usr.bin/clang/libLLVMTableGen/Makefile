@@ -11,6 +11,7 @@ SRCS=	DetailedRecordsBackend.cpp \
 	TableGenError.cpp \
 	JSONBackend.cpp \
 	Main.cpp \
+	Parser.cpp \
 	Record.cpp \
 	SetTheory.cpp \
 	StringMatcher.cpp \

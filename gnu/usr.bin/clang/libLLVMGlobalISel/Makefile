@@ -23,12 +23,11 @@ SRCS+=	CSEInfo.cpp \
 	LegalizerHelper.cpp \
 	LegalizerInfo.cpp \
 	LegacyLegalizerInfo.cpp \
+	LoadStoreOpt.cpp \
 	Localizer.cpp \
 	LostDebugLocObserver.cpp \
 	MachineIRBuilder.cpp \
 	RegBankSelect.cpp \
-	RegisterBank.cpp \
-	RegisterBankInfo.cpp \
 	GlobalISelUtils.cpp
 
 GlobalISelUtils.cpp:

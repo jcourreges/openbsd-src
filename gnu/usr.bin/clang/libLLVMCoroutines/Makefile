@@ -8,6 +8,7 @@ CPPFLAGS+=	-I${LLVM_SRCS}/include/llvm/Transforms/Coroutines
 
 SRCS+=	Coroutines.cpp \
 	CoroCleanup.cpp \
+	CoroConditionalWrapper.cpp \
 	CoroEarly.cpp \
 	CoroElide.cpp \
 	CoroFrame.cpp \

@@ -8,19 +8,26 @@ CPPFLAGS+=	-I${.OBJDIR}/../include/llvm/RISCV \
 
 SRCS+=	RISCVAsmPrinter.cpp \
 	RISCVCallLowering.cpp \
+	RISCVCodeGenPrepare.cpp \
+	RISCVMakeCompressible.cpp \
 	RISCVExpandAtomicPseudoInsts.cpp\
 	RISCVExpandPseudoInsts.cpp \
 	RISCVFrameLowering.cpp \
+	RISCVGatherScatterLowering.cpp \
 	RISCVInsertVSETVLI.cpp \
 	RISCVInstrInfo.cpp \
 	RISCVInstructionSelector.cpp \
 	RISCVISelDAGToDAG.cpp \
 	RISCVISelLowering.cpp \
 	RISCVLegalizerInfo.cpp \
+	RISCVMachineFunctionInfo.cpp \
+	RISCVMacroFusion.cpp \
 	RISCVMCInstLower.cpp \
 	RISCVMergeBaseOffset.cpp \
+	RISCVRedundantCopyElimination.cpp \
 	RISCVRegisterBankInfo.cpp \
 	RISCVRegisterInfo.cpp \
+	RISCVSExtWRemoval.cpp \
 	RISCVSubtarget.cpp \
 	RISCVTargetMachine.cpp \
 	RISCVTargetObjectFile.cpp \

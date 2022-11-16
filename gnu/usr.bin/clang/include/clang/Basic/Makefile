@@ -43,7 +43,8 @@ GEN+= DiagnosticGroups.inc \
 	arm_cde_builtin_sema.inc \
 	arm_cde_builtin_aliases.inc \
 	riscv_vector_builtins.inc \
-	riscv_vector_builtin_cg.inc
+	riscv_vector_builtin_cg.inc \
+	riscv_vector_builtin_sema.inc
 
 all: ${GEN}
 
@@ -143,6 +144,10 @@ riscv_vector_builtins.inc: ${CLANG_INC}/clang/Basic/riscv_vector.td
 
 riscv_vector_builtin_cg.inc: ${CLANG_INC}/clang/Basic/riscv_vector.td
 	${TBLGEN} -I${CLANG_INC}/clang/Basic -gen-riscv-vector-builtin-codegen \
+		-o ${.TARGET} ${.ALLSRC}
+
+riscv_vector_builtin_sema.inc: ${CLANG_INC}/clang/Basic/riscv_vector.td
+	${TBLGEN} -I${CLANG_INC}/clang/Basic -gen-riscv-vector-builtin-sema \
 		-o ${.TARGET} ${.ALLSRC}
 
 .include <bsd.obj.mk>

@@ -18,6 +18,7 @@ SRCS+=	X86AsmPrinter.cpp \
 	X86PreAMXConfig.cpp \
 	X86LowerAMXIntrinsics.cpp \
 	X86TileConfig.cpp \
+	X86FastPreTileConfig.cpp \
 	X86FastTileConfig.cpp \
 	X86PreTileConfig.cpp \
 	X86ExpandPseudo.cpp \
@@ -26,6 +27,7 @@ SRCS+=	X86AsmPrinter.cpp \
 	X86FixupGadgets.cpp \
 	X86FixupLEAs.cpp \
 	X86AvoidStoreForwardingBlocks.cpp \
+	X86DynAllocaExpander.cpp \
 	X86FixupSetCC.cpp \
 	X86FlagsCopyLowering.cpp \
 	X86FloatingPoint.cpp \
@@ -53,6 +55,7 @@ SRCS+=	X86AsmPrinter.cpp \
 	X86PartialReduction.cpp \
 	X86RegisterBankInfo.cpp \
 	X86RegisterInfo.cpp \
+	X86ReturnThunks.cpp \
 	X86ReturnProtectorLowering.cpp \
 	X86SelectionDAGInfo.cpp \
 	X86ShuffleDecodeConstantPool.cpp \
@@ -63,7 +66,6 @@ SRCS+=	X86AsmPrinter.cpp \
 	X86TargetObjectFile.cpp \
 	X86TargetTransformInfo.cpp \
 	X86VZeroUpper.cpp \
-	X86WinAllocaExpander.cpp \
 	X86WinEHState.cpp \
 	X86InsertWait.cpp
 

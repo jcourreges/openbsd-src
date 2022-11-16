@@ -23,15 +23,22 @@ SRCS+=	Execution.cpp \
 SRCS+=	JITLink.cpp \
 	JITLinkGeneric.cpp \
 	JITLinkMemoryManager.cpp \
+	DWARFRecordSectionSplitter.cpp \
 	EHFrameSupport.cpp \
 	ExecutionEngineMachO.cpp \
 	MachO_arm64.cpp \
 	MachO_x86_64.cpp \
 	MachOLinkGraphBuilder.cpp \
+	MemoryFlags.cpp \
 	ExecutionEngineELF.cpp \
+	ExecutionEngineCOFF.cpp \
 	ELFLinkGraphBuilder.cpp \
+	ELF_aarch64.cpp \
 	ELF_riscv.cpp \
 	ELF_x86_64.cpp \
+	COFFLinkGraphBuilder.cpp \
+	COFF_x86_64.cpp \
+	aarch64.cpp \
 	riscv.cpp \
 	x86_64.cpp
 
@@ -39,8 +46,10 @@ SRCS+=	JITLink.cpp \
 SRCS+=	MCJIT.cpp
 
 # OrcShared
-SRCS+=	OrcError.cpp \
-	RPCError.cpp
+SRCS+=	AllocationActions.cpp \
+	OrcError.cpp \
+	OrcRTBridge.cpp \
+	SimpleRemoteEPCUtils.cpp
 
 # OrcTargetProcess
 SRCS+=	JITLoaderGDB.cpp \
@@ -52,29 +61,40 @@ SRCS+=	CompileOnDemandLayer.cpp \
 	CompileUtils.cpp \
 	ExecutionEngineCore.cpp \
 	DebugObjectManagerPlugin.cpp \
+	DebuggerSupportPlugin.cpp \
 	DebugUtils.cpp \
 	EPCDynamicLibrarySearchGenerator.cpp \
 	EPCDebugObjectRegistrar.cpp \
 	EPCEHFrameRegistrar.cpp \
+	EPCGenericDylibManager.cpp \
+	EPCGenericJITLinkMemoryManager.cpp \
+	EPCGenericRTDyldMemoryManager.cpp \
 	EPCIndirectionUtils.cpp \
 	ExecutionUtils.cpp \
+	ObjectFileInterface.cpp \
 	IndirectionUtils.cpp \
 	IRCompileLayer.cpp \
 	IRTransformLayer.cpp \
 	JITTargetMachineBuilder.cpp \
 	LazyReexports.cpp \
 	Layer.cpp \
+	LookupAndRecordAddrs.cpp \
 	LLJIT.cpp \
 	MachOPlatform.cpp \
+	MapperJITLinkMemoryManager.cpp \
+	MemoryMapper.cpp \
+	ELFNixPlatform.cpp \
 	Mangling.cpp \
 	ObjectLinkingLayer.cpp \
 	ObjectTransformLayer.cpp \
 	OrcABISupport.cpp \
 	OrcV2CBindings.cpp \
 	RTDyldObjectLinkingLayer.cpp \
+	SimpleRemoteEPC.cpp \
 	Speculation.cpp \
 	SpeculateAnalyses.cpp \
 	ExecutorProcessControl.cpp \
+	TaskDispatch.cpp \
 	ThreadSafeModule.cpp
 
 # RuntimeDyld
@@ -97,6 +117,9 @@ ExecutionEngineMachO.cpp:
 
 ExecutionEngineELF.cpp:
 	ln -s ${LLVM_SRCS}/lib/ExecutionEngine/JITLink/ELF.cpp $@
+
+ExecutionEngineCOFF.cpp:
+	ln -s ${LLVM_SRCS}/lib/ExecutionEngine/JITLink/COFF.cpp $@
 
 .PATH:	${.CURDIR}/../../../llvm/llvm/lib/ExecutionEngine
 .PATH:	${.CURDIR}/../../../llvm/llvm/lib/ExecutionEngine/Interpreter

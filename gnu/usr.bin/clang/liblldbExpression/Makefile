@@ -8,6 +8,7 @@ NOPROFILE=
 
 SRCS=	DiagnosticManager.cpp \
 	DWARFExpression.cpp \
+	DWARFExpressionList.cpp \
 	Expression.cpp \
 	ExpressionVariable.cpp \
 	FunctionCaller.cpp \

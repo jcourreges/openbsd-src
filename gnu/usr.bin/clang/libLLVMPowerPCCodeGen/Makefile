@@ -19,6 +19,7 @@ SRCS+=	PPCBoolRetToInt.cpp \
 	PPCCallingConv.cpp \
 	PPCCCState.cpp \
 	PPCCTRLoops.cpp \
+	PPCCTRLoopsVerify.cpp \
 	PPCExpandAtomicPseudoInsts.cpp \
 	PPCHazardRecognizers.cpp \
 	PPCInstrInfo.cpp \
@@ -47,7 +48,8 @@ SRCS+=	PPCBoolRetToInt.cpp \
 	PPCVSXSwapRemoval.cpp \
 	PPCExpandISEL.cpp \
 	PPCPreEmitPeephole.cpp \
-	PPCLowerMASSVEntries.cpp
+	PPCLowerMASSVEntries.cpp \
+	PPCGenScalarMASSEntries.cpp
 
 .PATH:	${.CURDIR}/../../../llvm/llvm/lib/Target/PowerPC
 .PATH:	${.CURDIR}/../../../llvm/llvm/lib/Target/PowerPC/GISel

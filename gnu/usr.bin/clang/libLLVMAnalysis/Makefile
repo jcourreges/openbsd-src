@@ -29,6 +29,7 @@ SRCS+=	AliasAnalysis.cpp \
 	CostModel.cpp \
 	CodeMetrics.cpp \
 	ConstantFolding.cpp \
+	CycleAnalysis.cpp \
 	DDG.cpp \
 	DDGPrinter.cpp \
 	ConstraintSystem.cpp \
@@ -79,11 +80,14 @@ SRCS+=	AliasAnalysis.cpp \
 	MemoryBuiltins.cpp \
 	MemoryDependenceAnalysis.cpp \
 	MemoryLocation.cpp \
+	MemoryProfileInfo.cpp \
 	MemorySSA.cpp \
 	MemorySSAUpdater.cpp \
+	ModelUnderTrainingRunner.cpp \
 	ModuleDebugInfoPrinter.cpp \
 	ModuleSummaryAnalysis.cpp \
 	MustExecute.cpp \
+	NoInferenceModelRunner.cpp \
 	ObjCARCAliasAnalysis.cpp \
 	ObjCARCAnalysisUtils.cpp \
 	ObjCARCInstKind.cpp \
@@ -97,7 +101,6 @@ SRCS+=	AliasAnalysis.cpp \
 	RegionInfo.cpp \
 	RegionPass.cpp \
 	RegionPrinter.cpp \
-	ReleaseModeModelRunner.cpp \
 	ReplayInlineAdvisor.cpp \
 	ScalarEvolution.cpp \
 	ScalarEvolutionAliasAnalysis.cpp \
@@ -108,6 +111,7 @@ SRCS+=	AliasAnalysis.cpp \
 	SyncDependenceAnalysis.cpp \
 	SyntheticCountsUtils.cpp \
 	TFUtils.cpp \
+	TensorSpec.cpp \
 	TargetLibraryInfo.cpp \
 	TargetTransformInfo.cpp \
 	Trace.cpp \
