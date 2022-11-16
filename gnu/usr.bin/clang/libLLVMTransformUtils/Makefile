@@ -21,6 +21,7 @@ SRCS+=	AddDiscriminators.cpp \
 	CloneFunction.cpp \
 	CloneModule.cpp \
 	CodeExtractor.cpp \
+	CodeLayout.cpp \
 	CodeMoverUtils.cpp \
 	CtorUtils.cpp \
 	Debugify.cpp \
@@ -50,13 +51,17 @@ SRCS+=	AddDiscriminators.cpp \
 	LoopUnrollRuntime.cpp \
 	LoopUtils.cpp \
 	LoopVersioning.cpp \
+	LowerAtomic.cpp \
+	LowerGlobalDtors.cpp \
 	LowerInvoke.cpp \
 	LowerMemIntrinsics.cpp \
 	LowerSwitch.cpp \
 	MatrixUtils.cpp \
 	MemoryOpRemark.cpp \
+	MemoryTaggingSupport.cpp \
 	Mem2Reg.cpp \
 	MetaRenamer.cpp \
+	MisExpect.cpp \
 	ModuleUtils.cpp \
 	NameAnonGlobals.cpp \
 	PredicateInfo.cpp \
@@ -67,6 +72,7 @@ SRCS+=	AddDiscriminators.cpp \
 	StripGCRelocates.cpp \
 	SSAUpdater.cpp \
 	SSAUpdaterBulk.cpp \
+	SampleProfileInference.cpp \
 	SampleProfileLoaderBaseUtil.cpp \
 	SanitizerStats.cpp \
 	SimplifyCFG.cpp \

@@ -15,11 +15,14 @@ SRCS+=	AggressiveAntiDepBreaker.cpp \
 	BranchRelaxation.cpp \
 	BreakFalseDeps.cpp \
 	BasicBlockSections.cpp \
+	BasicBlockSectionsProfileReader.cpp \
 	CalcSpillWeights.cpp \
 	CallingConvLower.cpp \
 	CFGuardLongjmp.cpp \
+	CFIFixup.cpp \
 	CFIInstrInserter.cpp \
 	CodeGen.cpp \
+	CodeGenCommonISel.cpp \
 	CodeGenPassBuilder.cpp \
 	CodeGenPrepare.cpp \
 	CommandFlags.cpp \
@@ -54,6 +57,7 @@ SRCS+=	AggressiveAntiDepBreaker.cpp \
 	InterleavedAccessPass.cpp \
 	InterleavedLoadCombinePass.cpp \
 	IntrinsicLowering.cpp \
+	JMCInstrumenter.cpp \
 	LatencyPriorityQueue.cpp \
 	LazyMachineBlockFrequencyInfo.cpp \
 	LexicalScopes.cpp \
@@ -83,6 +87,7 @@ SRCS+=	AggressiveAntiDepBreaker.cpp \
 	MachineCopyPropagation.cpp \
 	MachineCSE.cpp \
 	MachineCheckDebugify.cpp \
+	MachineCycleAnalysis.cpp \
 	MachineDebugify.cpp \
 	MachineDominanceFrontier.cpp \
 	MachineDominators.cpp \
@@ -110,13 +115,16 @@ SRCS+=	AggressiveAntiDepBreaker.cpp \
 	MachineScheduler.cpp \
 	MachineSink.cpp \
 	MachineSizeOpts.cpp \
+	MachineSSAContext.cpp \
 	MachineSSAUpdater.cpp \
 	MachineStripDebug.cpp \
 	MachineTraceMetrics.cpp \
 	MachineVerifier.cpp \
 	MIRFSDiscriminator.cpp \
+	MIRSampleProfile.cpp \
 	MIRYamlMapping.cpp \
 	ModuloSchedule.cpp \
+	MLRegallocEvictAdvisor.cpp \
 	MultiHazardRecognizer.cpp \
 	PatchableFunction.cpp \
 	MBFIWrapper.cpp \
@@ -142,9 +150,11 @@ SRCS+=	AggressiveAntiDepBreaker.cpp \
 	ReachingDefAnalysis.cpp \
 	RegAllocBase.cpp \
 	RegAllocBasic.cpp \
+	RegAllocEvictionAdvisor.cpp \
 	RegAllocFast.cpp \
 	RegAllocGreedy.cpp \
 	RegAllocPBQP.cpp \
+	RegAllocScore.cpp \
 	RegisterClassInfo.cpp \
 	RegisterCoalescer.cpp \
 	RegisterPressure.cpp \
@@ -160,6 +170,8 @@ SRCS+=	AggressiveAntiDepBreaker.cpp \
 	RegUsageInfoPropagate.cpp \
 	ReplaceWithVeclib.cpp \
 	ResetMachineFunctionPass.cpp \
+	RegisterBank.cpp \
+	RegisterBankInfo.cpp \
 	ReturnProtectorLowering.cpp \
 	ReturnProtectorPass.cpp \
 	SafeStack.cpp \
@@ -168,6 +180,7 @@ SRCS+=	AggressiveAntiDepBreaker.cpp \
 	ScheduleDAGInstrs.cpp \
 	ScheduleDAGPrinter.cpp \
 	ScoreboardHazardRecognizer.cpp \
+	SelectOptimize.cpp \
 	ShadowStackGCLowering.cpp \
 	ShrinkWrap.cpp \
 	SjLjEHPrepare.cpp \
@@ -196,6 +209,7 @@ SRCS+=	AggressiveAntiDepBreaker.cpp \
 	TwoAddressInstructionPass.cpp \
 	UnreachableBlockElim.cpp \
 	ValueTypes.cpp \
+	VLIWMachineScheduler.cpp \
 	VirtRegMap.cpp \
 	WasmEHPrepare.cpp \
 	WinEHPrepare.cpp \

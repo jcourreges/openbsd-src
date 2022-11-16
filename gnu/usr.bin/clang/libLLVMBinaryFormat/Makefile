@@ -6,6 +6,7 @@ NOPROFILE=
 CPPFLAGS+=	-I${LLVM_SRCS}/include/llvm/BinaryFormat
 
 SRCS+=	AMDGPUMetadataVerifier.cpp \
+	BinaryFormatCOFF.cpp \
 	Dwarf.cpp \
 	MachO.cpp \
 	Magic.cpp \
@@ -16,6 +17,9 @@ SRCS+=	AMDGPUMetadataVerifier.cpp \
 	MsgPackWriter.cpp \
 	Wasm.cpp \
 	XCOFF.cpp
+
+BinaryFormatCOFF.cpp:
+	ln -s ${LLVM_SRCS}/lib/BinaryFormat/COFF.cpp $@
 
 BinaryFormatMinidump.cpp:
 	ln -s ${LLVM_SRCS}/lib/BinaryFormat/Minidump.cpp $@
