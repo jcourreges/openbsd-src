@@ -23,22 +23,21 @@ SRCS=	ArchSpec.cpp \
 	GDBRemote.cpp \
 	IOObject.cpp \
 	LLDBAssert.cpp \
+	LLDBLog.cpp \
 	Listener.cpp \
 	Log.cpp \
-	Logging.cpp \
 	NameMatches.cpp \
 	ProcessInfo.cpp \
 	RegisterValue.cpp \
 	RegularExpression.cpp \
 	Reproducer.cpp \
-	ReproducerInstrumentation.cpp \
+	Instrumentation.cpp \
 	ReproducerProvider.cpp \
 	Scalar.cpp \
 	SelectHelper.cpp \
 	State.cpp \
 	Status.cpp \
 	Stream.cpp \
-	StreamCallback.cpp \
 	StreamString.cpp \
 	StringExtractor.cpp \
 	StringExtractorGDBRemote.cpp \

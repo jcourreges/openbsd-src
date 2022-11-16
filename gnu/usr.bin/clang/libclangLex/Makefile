@@ -7,9 +7,10 @@ NOPROFILE=
 CPPFLAGS+=	${CLANG_INCLUDES}
 
 .include <bsd.own.mk>
-SRCS=	DependencyDirectivesSourceMinimizer.cpp \
+SRCS=	DependencyDirectivesScanner.cpp \
 	HeaderMap.cpp \
 	HeaderSearch.cpp \
+	InitHeaderSearch.cpp \
 	Lexer.cpp \
 	LiteralSupport.cpp \
 	MacroArgs.cpp \
