@@ -22,7 +22,6 @@ SRCS=	ASTConsumers.cpp \
 	FrontendActions.cpp \
 	FrontendOptions.cpp \
 	HeaderIncludeGen.cpp \
-	InitHeaderSearch.cpp \
 	InitPreprocessor.cpp \
 	LayoutOverrideSource.cpp \
 	LogDiagnosticPrinter.cpp \

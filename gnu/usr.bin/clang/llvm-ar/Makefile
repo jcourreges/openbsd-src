@@ -5,7 +5,8 @@ BINDIR=	/usr/bin
 
 .include <bsd.own.mk>
 
-SRCS=	llvm-ar.cpp
+SRCS=	llvm-ar.cpp \
+	main.cpp
 
 LINKS=	${BINDIR}/ar ${BINDIR}/ranlib
 MAN+=	ranlib.1 ar.1

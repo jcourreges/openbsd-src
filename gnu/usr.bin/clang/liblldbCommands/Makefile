@@ -41,6 +41,7 @@ SRCS=	CommandCompletions.cpp \
 	CommandObjectVersion.cpp \
 	CommandObjectWatchpoint.cpp \
 	CommandObjectWatchpointCommand.cpp \
+	CommandOptionArgumentTable.cpp \
 	CommandOptionsProcessLaunch.cpp
 
 .PATH:	${.CURDIR}/../../../llvm/lldb/source/Commands

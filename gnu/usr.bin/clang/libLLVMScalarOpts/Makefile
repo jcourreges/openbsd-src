@@ -52,9 +52,8 @@ SRCS+=	ADCE.cpp \
 	LoopStrengthReduce.cpp \
 	LoopUnrollPass.cpp \
 	LoopUnrollAndJamPass.cpp \
-	LoopUnswitch.cpp \
 	LoopVersioningLICM.cpp \
-	LowerAtomic.cpp \
+	LowerAtomicPass.cpp \
 	LowerConstantIntrinsics.cpp \
 	LowerExpectIntrinsic.cpp \
 	LowerGuardIntrinsic.cpp \
@@ -84,6 +83,7 @@ SRCS+=	ADCE.cpp \
 	StraightLineStrengthReduce.cpp \
 	StructurizeCFG.cpp \
 	TailRecursionElimination.cpp \
+	TLSVariableHoist.cpp \
 	WarnMissedTransforms.cpp
 
 ScalarSCCP.cpp:

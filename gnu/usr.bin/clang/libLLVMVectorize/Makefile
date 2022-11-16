@@ -14,7 +14,7 @@ SRCS+=	LoadStoreVectorizer.cpp \
 	VectorCombine.cpp \
 	VPlan.cpp \
 	VPlanHCFGBuilder.cpp \
-	VPlanPredicator.cpp \
+	VPlanRecipes.cpp \
 	VPlanSLP.cpp \
 	VPlanTransforms.cpp \
 	VPlanVerifier.cpp

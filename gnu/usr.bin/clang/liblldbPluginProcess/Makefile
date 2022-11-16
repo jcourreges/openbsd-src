@@ -24,19 +24,18 @@ SRCS+=	GDBRemoteClientBase.cpp \
 	GDBRemoteCommunication.cpp \
 	GDBRemoteCommunicationClient.cpp \
 	GDBRemoteCommunicationHistory.cpp \
-	GDBRemoteCommunicationReplayServer.cpp \
 	GDBRemoteCommunicationServer.cpp \
 	GDBRemoteCommunicationServerCommon.cpp \
 	GDBRemoteCommunicationServerLLGS.cpp \
 	GDBRemoteCommunicationServerPlatform.cpp \
 	GDBRemoteRegisterContext.cpp \
+	GDBRemoteRegisterFallback.cpp \
 	ProcessGDBRemote.cpp \
 	ProcessGDBRemoteLog.cpp \
 	ThreadGDBRemote.cpp
 
 # Process/Utility
 SRCS+=	AuxVector.cpp \
-	DynamicRegisterInfo.cpp \
 	FreeBSDSignals.cpp \
 	GDBRemoteSignals.cpp \
 	HistoryThread.cpp \
@@ -117,7 +116,8 @@ SRCS+=	MinidumpTypes.cpp \
 	ThreadMinidump.cpp
 
 # Process/scripted
-SRCS+=	ScriptedProcess.cpp
+SRCS+=	ScriptedProcess.cpp \
+	ScriptedThread.cpp
 
 .PATH:	${.CURDIR}/../../../llvm/lldb/source/Plugins/Process/OpenBSD
 .PATH:	${.CURDIR}/../../../llvm/lldb/source/Plugins/Process/POSIX
