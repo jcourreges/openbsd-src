@@ -7,6 +7,7 @@ BINDIR=	/usr/bin
 LIBEXECDIR=/usr/libexec
 
 SRCS=	llvm-objdump.cpp \
+	OffloadDump.cpp \
 	SourcePrinter.cpp \
 	COFFDump.cpp \
 	ELFDump.cpp \

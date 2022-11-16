@@ -36,6 +36,7 @@ SRCS+=	AlwaysInliner.cpp \
 	LoopExtractor.cpp \
 	LowerTypeTests.cpp \
 	MergeFunctions.cpp \
+	ModuleInliner.cpp \
 	OpenMPOpt.cpp \
 	PartialInlining.cpp \
 	PassManagerBuilder.cpp \

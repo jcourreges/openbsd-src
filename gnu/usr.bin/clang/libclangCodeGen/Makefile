@@ -30,6 +30,7 @@ SRCS=	BackendUtil.cpp \
 	CGExprConstant.cpp \
 	CGExprScalar.cpp \
 	CGGPUBuiltin.cpp \
+	CGHLSLRuntime.cpp \
 	CGLoopInfo.cpp \
 	CGNonTrivialStruct.cpp \
 	CGObjC.cpp \
@@ -38,9 +39,7 @@ SRCS=	BackendUtil.cpp \
 	CGObjCRuntime.cpp \
 	CGOpenCLRuntime.cpp \
 	CGOpenMPRuntime.cpp \
-	CGOpenMPRuntimeAMDGCN.cpp \
 	CGOpenMPRuntimeGPU.cpp \
-	CGOpenMPRuntimeNVPTX.cpp \
 	CGRecordLayoutBuilder.cpp \
 	CGStmt.cpp \
 	CGStmtOpenMP.cpp \

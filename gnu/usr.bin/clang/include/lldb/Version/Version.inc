@@ -1,0 +1,8 @@
+/*	$OpenBSD$ */
+
+#define LLDB_VERSION			15.0.6
+#define LLDB_VERSION_STRING		"15.0.6"
+#define LLDB_VERSION_MAJOR		15
+#define LLDB_VERSION_MINOR		0
+#define LLDB_VERSION_PATCH		6
+#define LLDB_FULL_VERSION_STRING	"15.0.6"
