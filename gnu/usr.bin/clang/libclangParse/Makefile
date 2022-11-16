@@ -13,6 +13,7 @@ SRCS=	ParseAST.cpp \
 	ParseDeclCXX.cpp \
 	ParseExpr.cpp \
 	ParseExprCXX.cpp \
+	ParseHLSL.cpp \
 	ParseInit.cpp \
 	ParseObjc.cpp \
 	ParseOpenMP.cpp \

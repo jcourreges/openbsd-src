@@ -2,7 +2,7 @@
 
 .include <bsd.own.mk>
 
-LLVM_V=			13.0.0
+LLVM_V=			15.0.4
 CLANG_INTR_INCDIR=	/usr/lib/clang/${LLVM_V}/include
 
 TBLGEN= ${.OBJDIR}/../../../clang-tblgen/clang-tblgen
@@ -11,7 +11,8 @@ CLANG_INC=${.CURDIR}/../../../../../llvm/clang/include
 .PATH:	${.CURDIR}/../../../../../llvm/clang/lib/Headers
 
 GEN=
-HEADERS=	stdalign.h \
+HEADERS=	builtins.h \
+		stdalign.h \
 		stdatomic.h \
 		stdnoreturn.h \
 		tgmath.h \
@@ -27,6 +28,7 @@ GEN+=		arm_bf16.h
 GEN+=		arm_mve.h
 GEN+=		arm_cde.h
 HEADERS+=	arm_acle.h arm_cmse.h ${GEN}
+HEADERS+=	arm_neon_sve_bridge.h
 .elif ${MACHINE_ARCH} == "amd64" || ${MACHINE_ARCH} == "i386"
 HEADERS+=	adxintrin.h \
 		ammintrin.h \
@@ -41,6 +43,7 @@ HEADERS+=	adxintrin.h \
 		avx512dqintrin.h \
 		avx512erintrin.h \
 		avx512fintrin.h \
+		avx512fp16intrin.h \
 		avx512ifmaintrin.h \
 		avx512ifmavlintrin.h \
 		avx512pfintrin.h \
@@ -52,6 +55,7 @@ HEADERS+=	adxintrin.h \
 		avx512vlbwintrin.h \
 		avx512vlcdintrin.h \
 		avx512vldqintrin.h \
+		avx512vlfp16intrin.h \
 		avx512vlintrin.h \
 		avx512vp2intersectintrin.h \
 		avx512vlvp2intersectintrin.h \
@@ -68,6 +72,7 @@ HEADERS+=	adxintrin.h \
 		clzerointrin.h \
 		cpuid.h \
 		clflushoptintrin.h \
+		crc32intrin.h \
 		clwbintrin.h \
 		emmintrin.h \
 		enqcmdintrin.h \
@@ -95,6 +100,7 @@ HEADERS+=	adxintrin.h \
 		popcntintrin.h \
 		prfchwintrin.h \
 		ptwriteintrin.h \
+		rdpruintrin.h \
 		rdseedintrin.h \
 		rtmintrin.h \
 		serializeintrin.h \

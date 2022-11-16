@@ -5,7 +5,8 @@
 .include "../../../Makefile.arch"
 .include "../../../Makefile.inc"
 
-DEFS=	AsmParsers.def AsmPrinters.def Disassemblers.def Targets.def llvm-config.h
+DEFS=	AsmParsers.def AsmPrinters.def Disassemblers.def Targets.def \
+	TargetMCAs.def llvm-config.h
 
 HDRS=	abi-breaking.h
 INCDIR=	/usr/include/llvm/Config
@@ -27,6 +28,12 @@ Disassemblers.def:
 Targets.def:
 	printf "LLVM_TARGET(AMDGPU)\n" >$@
 	printf "LLVM_TARGET(${LLVM_ARCH})\n#undef LLVM_TARGET\n" >>$@
+TargetMCAs.def:
+	printf "LLVM_TARGETMCA(AMDGPU)\n" >$@
+.if "${LLVM_ARCH}" == "X86"
+	printf "LLVM_TARGETMCA(${LLVM_ARCH})\n" >> $@
+.endif
+	printf "#undef LLVM_TARGETMCA\n" >>$@
 
 llvm-config.h: llvm-config.h.in
 	cp ${.CURDIR}/llvm-config.h.in $@
@@ -39,6 +46,7 @@ llvm-config.h: llvm-config.h.in
 	printf "#define LLVM_NATIVE_TARGET LLVMInitialize${LLVM_ARCH}Target\n" >> $@
 	printf "#define LLVM_NATIVE_TARGETINFO LLVMInitialize${LLVM_ARCH}TargetInfo\n" >> $@
 	printf "#define LLVM_NATIVE_TARGETMC LLVMInitialize${LLVM_ARCH}TargetMC\n" >> $@
+	printf "#define LLVM_NATIVE_TARGETMCA LLVMInitialize${LLVM_ARCH}TargetMCA\n" >> $@
 	printf "\n#endif\n" >> $@
 
 install includes: ${DEFS}

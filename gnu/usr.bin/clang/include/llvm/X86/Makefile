@@ -15,6 +15,7 @@ HDRS=	X86GenAsmMatcher.inc \
 	X86GenFastISel.inc \
 	X86GenGlobalISel.inc \
 	X86GenInstrInfo.inc \
+	X86GenMnemonicTables.inc \
 	X86GenRegisterBank.inc \
 	X86GenRegisterInfo.inc \
 	X86GenSubtargetInfo.inc
@@ -79,6 +80,12 @@ X86GenGlobalISel.inc: ${LLVM_SRCS}/lib/Target/X86/X86.td
 
 X86GenInstrInfo.inc: ${LLVM_SRCS}/lib/Target/X86/X86.td
 	${.OBJDIR}/../../../llvm-tblgen/llvm-tblgen -gen-instr-info \
+		-instr-info-expand-mi-operand-info=0 \
+		-I${LLVM_SRCS}/include -I${LLVM_SRCS}/lib/Target/X86 \
+		-o ${.TARGET} ${.ALLSRC}
+
+X86GenMnemonicTables.inc: ${LLVM_SRCS}/lib/Target/X86/X86.td
+	${.OBJDIR}/../../../llvm-tblgen/llvm-tblgen -gen-x86-mnemonic-tables -asmwriternum=1 \
 		-I${LLVM_SRCS}/include -I${LLVM_SRCS}/lib/Target/X86 \
 		-o ${.TARGET} ${.ALLSRC}
 

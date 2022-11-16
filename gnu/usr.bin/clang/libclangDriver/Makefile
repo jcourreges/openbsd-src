@@ -37,6 +37,7 @@ SRCS+=	AIX.cpp \
 	CommonArgs.cpp \
 	Contiki.cpp \
 	CrossWindows.cpp \
+	CSKYToolChain.cpp \
 	Cuda.cpp \
 	Darwin.cpp \
 	DragonFly.cpp \
@@ -45,8 +46,11 @@ SRCS+=	AIX.cpp \
 	Fuchsia.cpp \
 	Gnu.cpp \
 	Haiku.cpp \
-	HIP.cpp \
+	HIPUtility.cpp \
+	HIPAMD.cpp \
+	HIPSPV.cpp \
 	Hexagon.cpp \
+	HLSL.cpp \
 	Hurd.cpp \
 	Linux.cpp \
 	MipsLinux.cpp \
@@ -61,17 +65,20 @@ SRCS+=	AIX.cpp \
 	PS4CPU.cpp \
 	RISCVToolchain.cpp \
 	Solaris.cpp \
+	SPIRV.cpp \
 	TCE.cpp \
 	VEToolchain.cpp \
 	WebAssembly.cpp \
 	XCore.cpp \
 	PPCLinux.cpp \
+	PPCFreeBSD.cpp \
 	InterfaceStubs.cpp \
 	ZOS.cpp
 
 # Driver/Toolchains/Arch
 SRCS+=	AArch64.cpp \
 	ARM.cpp \
+	CSKY.cpp \
 	M68k.cpp \
 	Mips.cpp \
 	PPC.cpp \

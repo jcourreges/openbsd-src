@@ -5,7 +5,8 @@
 PROG=	clang
 BINDIR=	/usr/bin
 LIBEXECDIR=/usr/libexec
-SRCS=	driver.cpp \
+SRCS=	main.cpp \
+	driver.cpp \
 	cc1_main.cpp \
 	cc1as_main.cpp \
 	cc1gen_reproducer_main.cpp
@@ -41,6 +42,8 @@ LLVM_LIBDEPS=	LLVM \
 		clangRewrite \
 		clangAnalysis \
 		clangEdit \
+		clangExtractAPI \
+		clangIndex \
 		clangAST \
 		clangLex \
 		clangBasic

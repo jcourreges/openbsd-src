@@ -11,6 +11,7 @@ SRCS=	AdbClient.cpp \
 	PlatformFreeBSD.cpp \
 	PlatformLinux.cpp \
 	PlatformDarwin.cpp \
+	PlatformDarwinDevice.cpp \
 	PlatformDarwinKernel.cpp \
 	PlatformMacOSX.cpp \
 	PlatformRemoteAppleBridge.cpp \
@@ -22,8 +23,33 @@ SRCS=	AdbClient.cpp \
 	PlatformNetBSD.cpp \
 	PlatformOpenBSD.cpp \
 	PlatformPOSIX.cpp \
+	PlatformQemuUser.cpp \
 	PlatformWindows.cpp \
 	PlatformRemoteGDBServer.cpp
+
+PlatformDarwin.o PlatformDarwinKernel.o: PlatformMacOSXProperties.inc
+PlatformMacOSXProperties.inc: PlatformMacOSXProperties.td
+	${.OBJDIR}/../lldb-tblgen/lldb-tblgen -gen-lldb-property-defs \
+		-I ${LLDB_SRCS}/source/Plugins/Platform/MacOSX \
+		-o ${.TARGET} ${.ALLSRC}
+
+PlatformDarwin.o PlatformDarwinKernel.o: PlatformMacOSXPropertiesEnum.inc
+PlatformMacOSXPropertiesEnum.inc: PlatformMacOSXProperties.td
+	${.OBJDIR}/../lldb-tblgen/lldb-tblgen -gen-lldb-property-enum-defs \
+		-I ${LLDB_SRCS}/source/Plugins/Platform/MacOSX \
+		-o ${.TARGET} ${.ALLSRC}
+
+PlatformQemuUser.o: PlatformQemuUserProperties.inc
+PlatformQemuUserProperties.inc: PlatformQemuUserProperties.td
+	${.OBJDIR}/../lldb-tblgen/lldb-tblgen -gen-lldb-property-defs \
+		-I ${LLDB_SRCS}/source/Plugins/Platform/QemuUser \
+		-o ${.TARGET} ${.ALLSRC}
+
+PlatformQemuUser.o: PlatformQemuUserPropertiesEnum.inc
+PlatformQemuUserPropertiesEnum.inc: PlatformQemuUserProperties.td
+	${.OBJDIR}/../lldb-tblgen/lldb-tblgen -gen-lldb-property-enum-defs \
+		-I ${LLDB_SRCS}/source/Plugins/Platform/QemuUser \
+		-o ${.TARGET} ${.ALLSRC}
 
 .PATH:	${.CURDIR}/../../../llvm/lldb/source/Plugins/Platform/Android
 .PATH:	${.CURDIR}/../../../llvm/lldb/source/Plugins/Platform/FreeBSD
@@ -32,8 +58,12 @@ SRCS=	AdbClient.cpp \
 .PATH:	${.CURDIR}/../../../llvm/lldb/source/Plugins/Platform/NetBSD
 .PATH:	${.CURDIR}/../../../llvm/lldb/source/Plugins/Platform/OpenBSD
 .PATH:	${.CURDIR}/../../../llvm/lldb/source/Plugins/Platform/POSIX
+.PATH:	${.CURDIR}/../../../llvm/lldb/source/Plugins/Platform/QemuUser
 .PATH:	${.CURDIR}/../../../llvm/lldb/source/Plugins/Platform/Windows
 .PATH:	${.CURDIR}/../../../llvm/lldb/source/Plugins/Platform/gdb-server
+
+CLEANFILES+=	PlatformMacOSXProperties.inc PlatformMacOSXPropertiesEnum.inc
+CLEANFILES+=	PlatformQemuUserProperties.inc PlatformQemuUserPropertiesEnum.inc
 
 install:
 	@# Nothing here so far ...
