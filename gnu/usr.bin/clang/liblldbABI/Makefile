@@ -22,6 +22,7 @@ SRCS=	ABIAArch64.cpp \
 	ABISysV_ppc64.cpp \
 	ABISysV_s390x.cpp \
 	ABIX86.cpp \
+	ABIX86_i386.cpp \
 	ABIMacOSX_i386.cpp \
 	ABISysV_i386.cpp \
 	ABISysV_x86_64.cpp \

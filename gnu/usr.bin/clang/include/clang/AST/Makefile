@@ -7,6 +7,7 @@ CLANG_SRCS=${.CURDIR}/../../../../../llvm/clang
 CLANG_INC=${CLANG_SRCS}/include
 
 GEN=	Attrs.inc \
+	AttrDocTable.inc \
 	AttrImpl.inc \
 	AttrTextNodeDump.inc \
 	AttrNodeTraverse.inc \
@@ -37,6 +38,10 @@ clean cleandir:
 
 Attrs.inc: ${CLANG_INC}/clang/Basic/Attr.td
 	${TBLGEN} -I${CLANG_INC} -gen-clang-attr-classes \
+		-o ${.TARGET} ${.ALLSRC}
+
+AttrDocTable.inc: ${CLANG_INC}/clang/Basic/Attr.td
+	${TBLGEN} -I${CLANG_INC} -gen-clang-attr-doc-table \
 		-o ${.TARGET} ${.ALLSRC}
 
 AttrImpl.inc: ${CLANG_INC}/clang/Basic/Attr.td

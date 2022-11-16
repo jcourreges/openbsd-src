@@ -33,6 +33,8 @@ SUBDIR+=libclangSema
 SUBDIR+=libclangCodeGen
 SUBDIR+=libclangAnalysis
 SUBDIR+=libclangEdit
+SUBDIR+=libclangExtractAPI
+SUBDIR+=libclangIndex
 SUBDIR+=libclangRewrite
 SUBDIR+=libclangDriver
 SUBDIR+=libclangSerialization
@@ -45,7 +47,6 @@ SUBDIR+=clang
 SUBDIR+=include/lld/ELF
 
 SUBDIR+=liblldCommon
-SUBDIR+=liblldCore
 SUBDIR+=liblldELF
 
 SUBDIR+=lld
@@ -100,6 +101,7 @@ SUBDIR+=lldb
 SUBDIR+=lldb-server
 .endif
 
+SUBDIR+=libLLVMObjCopy
 SUBDIR+=include/llvm-objcopy
 SUBDIR+=llvm-objcopy
 SUBDIR+=include/llvm-objdump

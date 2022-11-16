@@ -34,8 +34,9 @@ SRCS+=	AbstractCallSite.cpp \
 	Globals.cpp \
 	IRBuilder.cpp \
 	IRPrintingPasses.cpp \
+	SSAContext.cpp \
 	InlineAsm.cpp \
-	Instruction.cpp \
+	CoreInstruction.cpp \
 	Instructions.cpp \
 	IntrinsicInst.cpp \
 	LLVMContext.cpp \
@@ -67,11 +68,15 @@ SRCS+=	AbstractCallSite.cpp \
 	User.cpp \
 	Value.cpp \
 	ValueSymbolTable.cpp \
+	VectorBuilder.cpp \
 	Verifier.cpp
 
 CoreCore.cpp:
 	ln -s ${LLVM_SRCS}/lib/IR/Core.cpp $@
 
+CoreInstruction.cpp:
+	ln -s ${LLVM_SRCS}/lib/IR/Instruction.cpp $@
+
 .PATH:	${.CURDIR}/../../../llvm/llvm/lib/IR
 
-CLEANFILES+= CoreCore.cpp
+CLEANFILES+= CoreCore.cpp CoreInstruction.cpp
