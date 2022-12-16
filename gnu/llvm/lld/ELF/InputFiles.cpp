@@ -45,7 +45,9 @@ uint32_t InputFile::nextGroupId;
 
 std::unique_ptr<TarWriter> elf::tar;
 
+#ifdef GNU_WARNINGS
 DenseMap<StringRef, StringRef> elf::gnuWarnings;
+#endif
 
 // Returns "<internal>", "foo.a(bar.o)" or "baz.o".
 std::string lld::toString(const InputFile *f) {
@@ -61,6 +63,7 @@ std::string lld::toString(const InputFile *f) {
   return std::string(f->toStringCache);
 }
 
+#ifdef GNU_WARNINGS
 // .gnu.warning.SYMBOL are treated as warning symbols for the given symbol
 void lld::parseGNUWarning(StringRef name, ArrayRef<char> data, size_t size) {
   if (!name.empty() && name.startswith(".gnu.warning.")) {
@@ -71,6 +74,7 @@ void lld::parseGNUWarning(StringRef name, ArrayRef<char> data, size_t size) {
     gnuWarnings.insert({wsym, wng});
   }
 }
+#endif
 
 static ELFKind getELFKind(MemoryBufferRef mb, StringRef archiveName) {
   unsigned char size;
@@ -607,6 +611,7 @@ void ObjFile<ELFT>::initializeSections(bool ignoreComdats,
     case SHT_RELA:
     case SHT_NULL:
       break;
+#ifdef GNU_WARNINGS
     case SHT_PROGBITS: {
       this->sections[i] = createInputSection(sec);
       StringRef name = CHECK(obj.getSectionName(sec, this->sectionStringTable), this);
@@ -615,6 +620,7 @@ void ObjFile<ELFT>::initializeSections(bool ignoreComdats,
       parseGNUWarning(name, data, sec.sh_size);
       }
       break;
+#endif
     case SHT_LLVM_SYMPART:
       ctx->hasSympart.store(true, std::memory_order_relaxed);
       LLVM_FALLTHROUGH;
@@ -1352,8 +1358,10 @@ template <class ELFT> void SharedFile::parse() {
   const ELFFile<ELFT> obj = this->getObj<ELFT>();
   ArrayRef<Elf_Shdr> sections = getELFShdrs<ELFT>();
 
+#ifdef GNU_WARNINGS
   StringRef sectionStringTable =
       CHECK(obj.getSectionStringTable(sections), this);
+#endif
 
   const Elf_Shdr *versymSec = nullptr;
   const Elf_Shdr *verdefSec = nullptr;
@@ -1377,6 +1385,7 @@ template <class ELFT> void SharedFile::parse() {
     case SHT_GNU_verneed:
       verneedSec = &sec;
       break;
+#ifdef GNU_WARNINGS
     case SHT_PROGBITS: {
       StringRef name = CHECK(obj.getSectionName(sec, sectionStringTable), this);
       ArrayRef<char> data =
@@ -1384,6 +1393,7 @@ template <class ELFT> void SharedFile::parse() {
       parseGNUWarning(name, data, sec.sh_size);
       break;
     }
+#endif
     }
   }
 

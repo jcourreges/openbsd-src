@@ -98,7 +98,9 @@ Symbol *SymbolTable::insert(StringRef name) {
   sym->inDynamicList = false;
   sym->referenced = false;
   sym->traced = false;
+#ifdef GNU_WARNINGS
   sym->gwarn = false;
+#endif
   sym->scriptDefined = false;
   sym->versionId = VER_NDX_GLOBAL;
   if (pos != StringRef::npos)

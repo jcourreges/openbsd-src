@@ -144,8 +144,10 @@ public:
   // True if the name contains '@'.
   uint8_t hasVersionSuffix : 1;
 
+#ifdef GNU_WARNINGS
   // True if the .gnu.warning.SYMBOL is set for the symbol
   uint8_t gwarn : 1;
+#endif
 
   inline void replace(const Symbol &other);
 
@@ -251,7 +253,11 @@ protected:
         visibility(stOther & 3), isPreemptible(false),
         isUsedInRegularObj(false), used(false), exportDynamic(false),
         inDynamicList(false), referenced(false), referencedAfterWrap(false),
-        traced(false), hasVersionSuffix(false), gwarn(false), isInIplt(false),
+        traced(false), hasVersionSuffix(false),
+#ifdef GNU_WARNINGS
+	gwarn(false),
+#endif
+	isInIplt(false),
         gotInIgot(false), folded(false), needsTocRestore(false),
         scriptDefined(false), needsCopy(false), needsGot(false),
         needsPlt(false), needsTlsDesc(false), needsTlsGd(false),
@@ -541,7 +547,9 @@ void Symbol::replace(const Symbol &other) {
   referenced = old.referenced;
   traced = old.traced;
   hasVersionSuffix = old.hasVersionSuffix;
+#ifdef GNU_WARNINGS
   gwarn = old.gwarn;
+#endif
   scriptDefined = old.scriptDefined;
   versionId = old.versionId;
 
@@ -562,7 +570,9 @@ void reportDuplicate(const Symbol &sym, const InputFile *newFile,
 void maybeWarnUnorderableSymbol(const Symbol *sym);
 bool computeIsPreemptible(const Symbol &sym);
 
+#ifdef GNU_WARNINGS
 extern llvm::DenseMap<StringRef, StringRef> gnuWarnings;
+#endif
 
 } // namespace elf
 } // namespace lld
