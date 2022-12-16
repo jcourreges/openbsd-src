@@ -14,7 +14,6 @@
 #define LLVM_CODEGEN_TARGETFRAMELOWERING_H
 
 #include "llvm/CodeGen/MachineBasicBlock.h"
-#include "llvm/CodeGen/ReturnProtectorLowering.h"
 #include "llvm/Support/TypeSize.h"
 #include <vector>
 
@@ -210,10 +209,6 @@ public:
                             MachineBasicBlock &MBB) const = 0;
   virtual void emitEpilogue(MachineFunction &MF,
                             MachineBasicBlock &MBB) const = 0;
-
-  virtual const ReturnProtectorLowering *getReturnProtector() const {
-    return nullptr;
-  }
 
   /// With basic block sections, emit callee saved frame moves for basic blocks
   /// that are in a different section.
