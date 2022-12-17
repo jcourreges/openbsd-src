@@ -2,6 +2,9 @@
 
 CFLAGS=${DEBUG} ${COPTS} -Oz -Wall -Werror
 CFLAGS+=	-ffreestanding -fno-stack-protector -DMDRANDOM
+# XXX Workaround for zlib + clang 15
+# https://github.com/madler/zlib/issues/633
+CFLAGS+=	-Wno-deprecated-non-prototype -Wno-unknown-warning-option
 CPPFLAGS+=-I${S} -I${SADIR}/libsa -I. -I${.CURDIR}
 SACFLAGS=-D_STANDALONE
 DEBUGFLAGS=
