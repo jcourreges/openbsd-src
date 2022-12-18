@@ -260,8 +260,7 @@ netif_put(struct iodesc *desc, void *pkt, size_t len)
 }
 
 struct iodesc *
-socktodesc(sock)
-	int sock;
+socktodesc(int sock)
 {
 	if (sock >= SOPEN_MAX) {
 		errno = EBADF;
