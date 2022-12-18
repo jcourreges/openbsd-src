@@ -241,8 +241,7 @@ pxe_netif_open(void)
 }
 
 void
-pxe_netif_close(sock)
-	int sock;
+pxe_netif_close(int sock)
 {
 	t_PXENV_UDP_CLOSE *uc = (void *) pxe_command_buf;
 
@@ -271,8 +270,7 @@ pxe_netif_shutdown(void)
 }
 
 struct iodesc *
-pxesocktodesc(sock)
-	int sock;
+pxesocktodesc(int sock)
 {
 
 #ifdef NETIF_DEBUG
