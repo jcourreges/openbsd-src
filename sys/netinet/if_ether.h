@@ -271,7 +271,8 @@ void	arp_rtrequest(struct ifnet *, int, struct rtentry *);
 void	ether_fakeaddr(struct ifnet *);
 int	ether_addmulti(struct ifreq *, struct arpcom *);
 int	ether_delmulti(struct ifreq *, struct arpcom *);
-int	ether_multiaddr(struct sockaddr *, u_int8_t[], u_int8_t[]);
+int	ether_multiaddr(struct sockaddr *, u_int8_t[ETHER_ADDR_LEN],
+    u_int8_t[ETHER_ADDR_LEN]);
 void	ether_ifattach(struct ifnet *);
 void	ether_ifdetach(struct ifnet *);
 int	ether_ioctl(struct ifnet *, struct arpcom *, u_long, caddr_t);

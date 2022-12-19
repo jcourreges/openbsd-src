@@ -54,7 +54,7 @@ uint16_t	stoeplitz_hash_ip6port(const struct stoeplitz_cache *,
 #endif
 
 uint16_t	stoeplitz_hash_eaddr(const struct stoeplitz_cache *,
-		    const uint8_t []);
+		    const uint8_t[6]);
 
 /* hash a uint16_t in network byte order */
 static __unused inline uint16_t

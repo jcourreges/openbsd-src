@@ -87,8 +87,8 @@ int	ieee80211_parse_edca_params_body(struct ieee80211com *,
 	    const u_int8_t *);
 int	ieee80211_parse_edca_params(struct ieee80211com *, const u_int8_t *);
 int	ieee80211_parse_wmm_params(struct ieee80211com *, const u_int8_t *);
-enum	ieee80211_cipher ieee80211_parse_rsn_cipher(const u_int8_t[]);
-enum	ieee80211_akm ieee80211_parse_rsn_akm(const u_int8_t[]);
+enum	ieee80211_cipher ieee80211_parse_rsn_cipher(const u_int8_t[4]);
+enum	ieee80211_akm ieee80211_parse_rsn_akm(const u_int8_t[4]);
 int	ieee80211_parse_rsn_body(struct ieee80211com *, const u_int8_t *,
 	    u_int, struct ieee80211_rsnparams *);
 int	ieee80211_save_ie(const u_int8_t *, u_int8_t **);
