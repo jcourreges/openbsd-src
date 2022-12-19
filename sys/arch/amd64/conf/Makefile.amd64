@@ -72,6 +72,8 @@ CMACHFLAGS+=	-mno-retpoline
 NO_INTEGR_AS=	-no-integrated-as
 CWARNFLAGS+=	-Wno-address-of-packed-member -Wno-constant-conversion \
 		-Wno-unused-but-set-variable -Wno-gnu-folding-constant
+# XXX zlib oddness
+CWARNFLAGS+=	-Wno-deprecated-non-prototype -Wno-unknown-warning-option
 .endif
 
 DEBUG?=		-g

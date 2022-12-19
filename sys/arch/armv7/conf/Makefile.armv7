@@ -28,6 +28,8 @@ CWARNFLAGS=	-Werror -Wall -Wimplicit-function-declaration \
 		-Wno-constant-conversion -Wno-address-of-packed-member \
 		-Wno-unused-but-set-variable -Wno-gnu-folding-constant \
 		-Wframe-larger-than=2047
+# XXX zlib oddness
+CWARNFLAGS+=	-Wno-deprecated-non-prototype -Wno-unknown-warning-option
 
 CMACHFLAGS=	-msoft-float -march=armv7a
 CMACHFLAGS+=	-ffreestanding ${NOPIE_FLAGS}
