@@ -954,6 +954,7 @@ void LinkerScript::assignOffsets(OutputSection *sec) {
                          ctx->memRegion->name, sec->name);
   }
 
+  switchTo(sec);
 
   // ctx->lmaOffset is LMA minus VMA. If LMA is explicitly specified via AT() or
   // AT>, recompute ctx->lmaOffset; otherwise, if both previous/current LMA
@@ -967,8 +968,6 @@ void LinkerScript::assignOffsets(OutputSection *sec) {
     ctx->lmaOffset = alignTo(mr->curPos, sec->alignment) - dot;
   else if (!sameMemRegion || !prevLMARegionIsDefault)
     ctx->lmaOffset = 0;
-
-  switchTo(sec);
 
   // Propagate ctx->lmaOffset to the first "non-header" section.
   if (PhdrEntry *l = ctx->outSec->ptLoad)

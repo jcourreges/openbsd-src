@@ -353,9 +353,6 @@ namespace llvm {
   ///
   FunctionPass *createStackProtectorPass();
 
-  // createReturnProtectorPass - This pass add return protectors to functions.
-  FunctionPass *createReturnProtectorPass();
-
   /// createMachineVerifierPass - This pass verifies cenerated machine code
   /// instructions for correctness.
   ///

@@ -37,8 +37,6 @@ class DWARFCache;
 // Returns "<internal>", "foo.a(bar.o)" or "baz.o".
 std::string toString(const elf::InputFile *f);
 
-void parseGNUWarning(StringRef name, ArrayRef<char> data, size_t size);
-
 namespace elf {
 
 using llvm::object::Archive;
