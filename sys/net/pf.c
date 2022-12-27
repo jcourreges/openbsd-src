@@ -200,7 +200,7 @@ static __inline int	 pf_create_state(struct pf_pdesc *, struct pf_rule *,
 			    struct pf_state_key **, struct pf_state_key **,
 			    int *, struct pf_state **, int,
 			    struct pf_rule_slist *, struct pf_rule_actions *,
-			    struct pf_src_node *[]);
+			    struct pf_src_node **);
 static __inline int	 pf_state_key_addr_setup(struct pf_pdesc *, void *,
 			    int, struct pf_addr *, int, struct pf_addr *,
 			    int, int);

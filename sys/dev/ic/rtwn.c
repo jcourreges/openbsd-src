@@ -151,19 +151,19 @@ void		rtwn_pa_bias_init(struct rtwn_softc *);
 void		rtwn_rxfilter_init(struct rtwn_softc *);
 void		rtwn_edca_init(struct rtwn_softc *);
 void		rtwn_rate_fallback_init(struct rtwn_softc *);
-void		rtwn_write_txpower(struct rtwn_softc *, int, uint16_t[]);
+void		rtwn_write_txpower(struct rtwn_softc *, int, uint16_t *);
 void		rtwn_get_txpower(struct rtwn_softc *sc, int,
 		    struct ieee80211_channel *, struct ieee80211_channel *,
-		    uint16_t[]);
+		    uint16_t *);
 void		rtwn_r92c_get_txpower(struct rtwn_softc *, int,
 		    struct ieee80211_channel *, struct ieee80211_channel *,
-		    uint16_t[]);
+		    uint16_t *);
 void		rtwn_r92e_get_txpower(struct rtwn_softc *, int,
 		    struct ieee80211_channel *,
-		    struct ieee80211_channel *, uint16_t[]);
+		    struct ieee80211_channel *, uint16_t *);
 void		rtwn_r88e_get_txpower(struct rtwn_softc *, int,
 		    struct ieee80211_channel *,
-		    struct ieee80211_channel *, uint16_t[]);
+		    struct ieee80211_channel *, uint16_t *);
 void		rtwn_set_txpower(struct rtwn_softc *,
 		    struct ieee80211_channel *, struct ieee80211_channel *);
 void		rtwn_set_chan(struct rtwn_softc *,

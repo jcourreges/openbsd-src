@@ -74,8 +74,8 @@ int kqpoll_debug = 0;
 	printf(x);							\
 }
 
-int pselregister(struct proc *, fd_set *[], fd_set *[], int, int *, int *);
-int pselcollect(struct proc *, struct kevent *, fd_set *[], int *);
+int pselregister(struct proc *, fd_set **, fd_set **, int, int *, int *);
+int pselcollect(struct proc *, struct kevent *, fd_set **, int *);
 void ppollregister(struct proc *, struct pollfd *, int, int *, int *);
 int ppollcollect(struct proc *, struct kevent *, struct pollfd *, u_int);
 
