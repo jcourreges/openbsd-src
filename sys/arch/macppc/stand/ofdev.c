@@ -164,8 +164,7 @@ struct fs_ops file_system[4];
 int nfsys;
 
 static u_long
-get_long(p)
-	const void *p;
+get_long(const void *p)
 {
 	const unsigned char *cp = p;
 
@@ -238,12 +237,8 @@ read_mac_label(struct of_dev *devp, char *buf, struct disklabel *lp)
  * Find a valid disklabel.
  */
 static int
-search_label(devp, off, buf, lp, off0)
-	struct of_dev *devp;
-	u_long off;
-	char *buf;
-	struct disklabel *lp;
-	u_long off0;
+search_label(struct of_dev *devp, u_long off, char *buf, struct disklabel *lp,
+    u_long off0)
 {
 	size_t read;
 	struct dos_partition *p;

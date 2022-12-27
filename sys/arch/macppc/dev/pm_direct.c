@@ -200,11 +200,7 @@ extern	void	adb_pass_up(struct adbCommand *);
  * This function dumps contents of the PMData
  */
 void
-pm_printerr(ttl, rval, num, data)
-	char *ttl;
-	int rval;
-	int num;
-	char *data;
+pm_printerr(char *ttl, int rval, int num, char *data)
 {
 	int i;
 
