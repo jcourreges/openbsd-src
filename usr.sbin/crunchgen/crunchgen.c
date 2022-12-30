@@ -898,7 +898,11 @@ top_makefile_rules(FILE * outmk)
 	fprintf(outmk, "CFLAGS+=-fno-asynchronous-unwind-tables\n");
 	fprintf(outmk, "LDFLAGS+=$(NOPIE_LDFLAGS)\n");
 	fprintf(outmk, "STRIP?=strip\n");
+	fprintf(outmk, ".if ${LINKER_VERSION} == \"lld\"\n");
+	fprintf(outmk, "LINK=$(LD) -r ${LDFLAGS}\n");
+	fprintf(outmk, ".else\n");
 	fprintf(outmk, "LINK=$(LD) -dc -r ${LDFLAGS}\n");
+	fprintf(outmk, ".endif\n");
 	fprintf(outmk, "LIBS=");
 	for (l = libdirs; l != NULL; l = l->next)
 		fprintf(outmk, " -L%s", l->str);
