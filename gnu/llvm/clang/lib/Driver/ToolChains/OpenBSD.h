@@ -86,6 +86,9 @@ public:
 
   LangOptions::StackProtectorMode
   GetDefaultStackProtectorLevel(bool KernelOrKext) const override {
+    // XXX stack protector code broken on armv7 with llvm 15
+    if (getTriple().getArch() == llvm::Triple::arm)
+      return LangOptions::SSPOff;
     return LangOptions::SSPStrong;
   }
   unsigned GetDefaultDwarfVersion() const override { return 2; }
